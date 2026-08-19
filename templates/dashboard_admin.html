@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velocity Pro Equipment - Panel de Administración</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-elevated": "#2C2C2C",
+                "on-secondary": "#313030",
+                "tertiary-fixed": "#e2e2e2",
+                "on-secondary-container": "#bab8b7",
+                "primary-fixed": "#ffdad6",
+                "secondary-fixed": "#e5e2e1",
+                "surface-dim": "#1e0f0e",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-surface-variant": "#e4beba",
+                "surface-charcoal": "#1E1E1E",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-low": "#271816",
+                "surface-tint": "#ffb3ac",
+                "surface-container-lowest": "#180a09",
+                "surface-variant": "#43302e",
+                "surface": "#1e0f0e",
+                "on-primary": "#680008",
+                "primary-container": "#d32f2f",
+                "on-surface": "#f9dcd9",
+                "outline": "#ab8985",
+                "surface-container": "#2c1b1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "secondary-container": "#4a4949",
+                "inverse-primary": "#ba1a20",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#c6c6c7",
+                "on-primary-container": "#fff2f0",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#f4f4f4",
+                "on-tertiary": "#2f3131",
+                "crimson-glare": "#FF5252",
+                "inverse-on-surface": "#3e2c2a",
+                "surface-bright": "#473533",
+                "on-tertiary-fixed-variant": "#454747",
+                "secondary": "#c8c6c5",
+                "surface-container-highest": "#43302e",
+                "tertiary-container": "#6e7070",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#1a1c1c",
+                "primary": "#ffb3ac",
+                "on-error": "#690005",
+                "on-primary-fixed": "#410003",
+                "warning-amber": "#FFC107",
+                "outline-variant": "#5b403d",
+                "background": "#1e0f0e",
+                "on-secondary-fixed-variant": "#474646",
+                "primary-fixed-dim": "#ffb3ac",
+                "on-primary-fixed-variant": "#930010",
+                "inverse-surface": "#f9dcd9",
+                "on-background": "#f9dcd9",
+                "surface-container-high": "#372624",
+                "success-green": "#4CAF50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "base": "8px",
+                "xl": "80px",
+                "md": "24px",
+                "sm": "12px",
+                "xs": "4px",
+                "gutter": "24px",
+                "lg": "48px",
+                "max-width": "1440px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-bold": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="h-full font-body-md text-on-background flex bg-background">
+<!-- NavigationDrawer (Left Nav) -->
+<nav class="hidden md:flex bg-surface-container-low fixed left-0 top-0 h-full w-[280px] border-r border-outline-variant flat no shadows flex-col gap-base p-sm z-40">
+<!-- Brand Header -->
+<div class="mb-lg px-sm pt-sm flex items-center gap-sm">
+<div class="h-10 w-10 bg-primary rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary truncate">ELITE PRO</span>
+</div>
+<!-- Profile Header -->
+<div class="flex items-center gap-sm mb-lg px-sm">
+<img class="h-12 w-12 rounded object-cover border-2 border-surface-container-highest" data-alt="Professional headshot of a modern corporate procurement manager, wearing a crisp dark blue blazer, standing in a brightly lit modern office with glass partitions. Clean, bright corporate lighting, high contrast aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtiYnekVoeqBENLCOFTgapC4NmLWl3E96WfBK9Hfmgb5lVnTJypCzkSTipzrbOkzvYL78RTMbQtFqPuwVFkFzLoItpRXWGJJdm36FvUvWONimAUqT79XZEZzHV2qGrZWMF_mesHmjvP2AhT7guTaProAlVHiy4dZ0jkprc0dG9gbpqfKiWOqVmLMCAwNzCyLDOowcNKjhg-5M0wLdDEJik_2AbwRfjy6oueRRFgRbKiZ8CBFLgJ3Xv"/>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md font-bold text-on-surface">Usuario Admin</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gerente de Compras</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Active Tab: Dashboard -->
+<a class="bg-primary-container text-on-primary-container font-bold rounded flex items-center gap-md px-4 py-3 active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined fill text-on-primary-container">dashboard</span>
+<span class="font-label-md text-label-md">Panel de Control</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-highest rounded hover:bg-surface-container-high transition-all flex items-center gap-md px-4 py-3 active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Productos</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-highest rounded hover:bg-surface-container-high transition-all flex items-center gap-md px-4 py-3 active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Pedidos</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-highest rounded hover:bg-surface-container-high transition-all flex items-center gap-md px-4 py-3 active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Clientes</span>
+</a>
+</div>
+<!-- Sub Text Footer -->
+<div class="mt-auto pt-4 px-sm border-t border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant">Panel de Administración</span>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[280px] flex flex-col h-full overflow-hidden">
+<!-- TopAppBar (Web/Desktop specific header for main content area) -->
+<header class="bg-surface-container-lowest shadow-sm w-full top-0 sticky z-30 h-16 flex items-center justify-between px-gutter py-sm">
+<div class="flex items-center gap-md">
+<!-- Mobile Menu Button (visible only on small screens) -->
+<button class="md:hidden text-primary hover:bg-secondary-container/50 transition-colors rounded p-2 active:scale-95 duration-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-md text-headline-md text-on-surface">Resumen</span>
+</div>
+<div class="flex items-center gap-md text-primary">
+<button class="hover:bg-secondary-container/50 transition-colors p-2 rounded active:scale-95 duration-100 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2 w-2 bg-error rounded"></span>
+</button>
+<button class="hover:bg-secondary-container/50 transition-colors p-2 rounded active:scale-95 duration-100">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-gutter lg:p-margin-desktop">
+<div class="max-w-max-width mx-auto flex flex-col gap-lg pb-xl md:pb-0">
+<!-- Page Title -->
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Panel de Rendimiento</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Métricas en tiempo real para Velocity Pro Equipment</p>
+</div>
+<!-- KPI Cards (Bento style grid top row) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start">
+<div class="h-10 w-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill">monitoring</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-success-green">trending_up</span> +12.5%
+                            </span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Ingresos Totales</p>
+<h3 class="font-headline-md text-headline-md text-primary">$84,592.00</h3>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start">
+<div class="h-10 w-10 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill">local_shipping</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-success-green">trending_up</span> +4.2%
+                            </span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Pedidos en Proceso</p>
+<h3 class="font-headline-md text-headline-md text-secondary">342</h3>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start">
+<div class="h-10 w-10 rounded bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill">inventory_2</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-error">trending_down</span> -1.1%
+                            </span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Alertas de Bajo Stock</p>
+<h3 class="font-headline-md text-headline-md text-tertiary">18</h3>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start">
+<div class="h-10 w-10 rounded bg-inverse-surface text-inverse-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined fill">group</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-success-green">trending_up</span> +8.9%
+                            </span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Nuevos Clientes</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">1,204</h3>
+</div>
+</div>
+</div>
+<!-- Main Data Visualizations (Bento grid mid section) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Wide Monthly Sales Chart (Spans 2 cols) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Resumen de Ventas</h3>
+<button class="text-primary hover:bg-secondary-container/50 px-3 py-1 rounded transition-colors font-label-bold text-label-bold flex items-center gap-1 border border-outline-variant/50">
+                                Este Año <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<!-- Placeholder for Chart Graphic -->
+<div class="flex-1 w-full bg-surface-container-low rounded relative overflow-hidden flex items-end px-4 gap-2 pt-10">
+<!-- Faux Bar Chart -->
+<div class="w-full flex justify-between items-end h-full gap-2 opacity-80">
+<div class="w-full bg-secondary-container h-[40%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[50%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[35%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-primary h-[70%] rounded-t shadow-md"></div>
+<div class="w-full bg-secondary-container h-[60%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[45%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[80%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[65%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[90%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[55%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[75%] rounded-t hover:bg-primary transition-colors"></div>
+<div class="w-full bg-secondary-container h-[85%] rounded-t hover:bg-primary transition-colors"></div>
+</div>
+<!-- Grid lines overlay -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-0 pt-10">
+<div class="border-t border-outline-variant/20 w-full h-0"></div>
+<div class="border-t border-outline-variant/20 w-full h-0"></div>
+<div class="border-t border-outline-variant/20 w-full h-0"></div>
+<div class="border-t border-outline-variant/20 w-full h-0"></div>
+</div>
+</div>
+<!-- X Axis Labels -->
+<div class="flex justify-between w-full mt-2 px-4 text-on-surface-variant font-label-md text-label-md">
+<span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dic</span>
+</div>
+</div>
+<!-- Top Products List -->
+<div class="bg-surface-container-lowest rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-[20px] leading-6 font-semibold text-on-surface">Productos Principales</h3>
+<button class="p-1 text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<div class="flex-1 overflow-y-auto pr-2 flex flex-col gap-4">
+<!-- Product Item 1 -->
+<div class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="A sleek, professional-grade adjustable dumbbell set resting on a pristine white surface, dramatic studio lighting highlighting the metallic finish, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKhPMJtom4Ommzy1C6-2AjMZJpHm7hrpwN6jQMaFRkJ-I6GJSIfPOq3nyqk_BimA7uoQpuaGHFDiZePxFGDn8UNYQtjH2xuDup7AfNDLnEI7TavWFNk1eQ5mRsosoKGhe0QG5cahZVfaVgwHBvpgotckPTFK67ThTg3DKH5jj_lIvpu_YDbB9urI5ilFS_VQBZiA6XoX4zbX0B81tAPaKVWZCJHnel564CugPjAzN_XHH6mHvnz9E1"/>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface truncate group-hover:text-primary transition-colors">Mancuernas ProAdjust 50lb</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Fuerza</p>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-bold text-on-surface">$4,200</p>
+<p class="font-label-md text-label-md text-success-green">124 ventas</p>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="High-end commercial treadmill with a large digital display, sitting in a minimal, brightly lit gym environment, modern high-contrast corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqO80pLfDCb8YLP0RcmUSyazgqE9jmgwV90hQXtSU-AtZLn3rspLkg1DHAguUdXxct1NR5_qsBDfHPYFaF0e9VpbK0oUqR0hhYxicZmL74Qpwi2Bcgal-a0w2aORo333SMTkl9KQxnz8_IMrnqrMs-GyAJn1XnmHAa-1Afc9WDA89oPqlgWbLDUz10TYhbt_Y7Nr7itrhNi2tn8Xm_c_48BMgsOy3pYyj5Ys0AaOuFwRIkD9XAtaar"/>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface truncate group-hover:text-primary transition-colors">Cinta de Correr Velocity V8</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Cardio</p>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-bold text-on-surface">$12,800</p>
+<p class="font-label-md text-label-md text-success-green">42 ventas</p>
+</div>
+</div>
+<!-- Product Item 3 -->
+<div class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="Stack of bright orange synthetic basketballs on a sleek metal rack, clean white background, vibrant accent colors, structured professional athletic look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaQQk4U1D23PEHcGLHCM-B5BOUjCssJ0jcTnRYvofdoS0K6b-1KjdCQW9I4JEZTzQ54TU2pcOwIOzzU6Yn58sIzcJ8V6-wexGg9f8T_cADcnIF0jP90V6AntkTs89Tg-ON2dWQPgTtp68rSfPbKuIzBs7PTr-OgBabDaAwrMgrHY7Q5QdjGtEy7hYMU217NRnBmWPEHUiRjmiXNn0MrNpGTOLzpFp3uJuGTb5pdU2wvAoFYNL8l6vF"/>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface truncate group-hover:text-primary transition-colors">Balones CourtMaster Pro</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Deportes de Equipo</p>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-bold text-on-surface">$1,450</p>
+<p class="font-label-md text-label-md text-success-green">310 ventas</p>
+</div>
+</div>
+<!-- Product Item 4 -->
+<div class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="Professional grade squat rack made of heavy black steel, sitting on rubber flooring in a pristine white room, corporate minimalist sports equipment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEy9mzmgfeqi3CPB44qQBU4UjTdL45bCINCoK4PFRkdCpvEeFtzF5-Jya7Wb8RVWAqDcvKSlvrElyT3_UWZsPC_ip1sEpNWY3jpPcaYZ0zC0S8v1rCOxRf_p1iFGb0tJv_QbviCC-wzxHd4ILATc8nuMEcl_DfZIBP6p3b0ube5ctqAUJYVoELElo-8bnlCnZ_ZYWJUcPG2l-JWUnagAePalPYE7Yx-FzIJFC4GEkmLmF-U9OhoF2g"/>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface truncate group-hover:text-primary transition-colors">Rack de Sentadillas Elite</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Fuerza</p>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-bold text-on-surface">$8,600</p>
+<p class="font-label-md text-label-md text-success-green">28 ventas</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Recent Activities & Data Table -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Recent Activities Feed (Glassmorphism inspired card) -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-gutter shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 flex flex-col">
+<h3 class="font-headline-md text-[20px] leading-6 font-semibold text-on-surface mb-6">Actividad Reciente</h3>
+<div class="relative pl-4 border-l-2 border-surface-container-highest flex flex-col gap-6">
+<!-- Activity 1 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1 h-3 w-3 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>Nuevo Pedido #8920</strong> realizado por Univ. de Michigan.</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Hace 10 mins</p>
+</div>
+<!-- Activity 2 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1 h-3 w-3 rounded-full bg-success-green ring-4 ring-surface-container-lowest"></div>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>Envío #8845</strong> entregado a Texas A&amp;M Athletics.</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Hace 2 horas</p>
+</div>
+<!-- Activity 3 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1 h-3 w-3 rounded-full bg-tertiary-container ring-4 ring-surface-container-lowest"></div>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>Alerta de Stock:</strong> Mancuernas ProAdjust por debajo del umbral mínimo.</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Hace 4 horas</p>
+</div>
+<!-- Activity 4 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1 h-3 w-3 rounded-full bg-secondary ring-4 ring-surface-container-lowest"></div>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>Sistema:</strong> Copia de seguridad semanal completada con éxito.</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Ayer, 11:30 PM</p>
+</div>
+</div>
+<button class="mt-6 w-full py-2 font-label-bold text-label-bold text-primary hover:bg-secondary-container/50 rounded transition-colors border border-primary/20">Ver Toda la Actividad</button>
+</div>
+<!-- Recent Orders Data Table (Spans 2 cols) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="p-gutter flex justify-between items-center border-b border-surface-container-high">
+<h3 class="font-headline-md text-headline-md text-on-surface">Pedidos Recientes</h3>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-label-bold text-label-bold px-4 py-2 rounded flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span> Exportar CSV
+                            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-container-high">
+<th class="py-3 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-wider">ID Pedido</th>
+<th class="py-3 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-wider">Cliente</th>
+<th class="py-3 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-wider">Fecha</th>
+<th class="py-3 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-wider">Estado</th>
+<th class="py-3 px-6 font-label-bold text-label-bold text-secondary uppercase tracking-wider text-right">Importe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-container hover:bg-inverse-primary/10 transition-colors group">
+<td class="py-4 px-6 font-body-sm text-body-sm text-primary font-medium cursor-pointer">#ORD-8920</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface">Univ. de Michigan</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface-variant">24 Oct, 2023</td>
+<td class="py-4 px-6">
+<span class="bg-warning-amber/20 text-warning-amber font-label-bold text-[10px] px-2 py-1 rounded uppercase tracking-wider">Pendiente</span>
+</td>
+<td class="py-4 px-6 font-body-sm text-body-sm font-semibold text-on-surface text-right">$4,250.00</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-inverse-primary/10 transition-colors group">
+<td class="py-4 px-6 font-body-sm text-body-sm text-primary font-medium cursor-pointer">#ORD-8919</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface">Distrito Escolar City</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface-variant">23 Oct, 2023</td>
+<td class="py-4 px-6">
+<span class="bg-success-green/20 text-success-green font-label-bold text-[10px] px-2 py-1 rounded uppercase tracking-wider">Enviado</span>
+</td>
+<td class="py-4 px-6 font-body-sm text-body-sm font-semibold text-on-surface text-right">$1,120.50</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-inverse-primary/10 transition-colors group">
+<td class="py-4 px-6 font-body-sm text-body-sm text-primary font-medium cursor-pointer">#ORD-8918</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface">Gimnasios ProFit LLC</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface-variant">23 Oct, 2023</td>
+<td class="py-4 px-6">
+<span class="bg-success-green/20 text-success-green font-label-bold text-[10px] px-2 py-1 rounded uppercase tracking-wider">Enviado</span>
+</td>
+<td class="py-4 px-6 font-body-sm text-body-sm font-semibold text-on-surface text-right">$15,400.00</td>
+</tr>
+<tr class="hover:bg-inverse-primary/10 transition-colors group">
+<td class="py-4 px-6 font-body-sm text-body-sm text-primary font-medium cursor-pointer">#ORD-8917</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface">Texas A&amp;M Athletics</td>
+<td class="py-4 px-6 font-body-sm text-body-sm text-on-surface-variant">22 Oct, 2023</td>
+<td class="py-4 px-6">
+<span class="bg-success-green/20 text-success-green font-label-bold text-[10px] px-2 py-1 rounded uppercase tracking-wider">Enviado</span>
+</td>
+<td class="py-4 px-6 font-body-sm text-body-sm font-semibold text-on-surface text-right">$8,900.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

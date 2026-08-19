@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elite Pro Sports - Tienda</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-elevated": "#2C2C2C",
+                "on-secondary": "#313030",
+                "tertiary-fixed": "#e2e2e2",
+                "on-secondary-container": "#bab8b7",
+                "primary-fixed": "#ffdad6",
+                "secondary-fixed": "#e5e2e1",
+                "surface-dim": "#1e0f0e",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-surface-variant": "#e4beba",
+                "surface-charcoal": "#1E1E1E",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-low": "#271816",
+                "surface-tint": "#ffb3ac",
+                "surface-container-lowest": "#180a09",
+                "surface-variant": "#43302e",
+                "surface": "#1e0f0e",
+                "on-primary": "#680008",
+                "primary-container": "#d32f2f",
+                "on-surface": "#f9dcd9",
+                "outline": "#ab8985",
+                "surface-container": "#2c1b1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "secondary-container": "#4a4949",
+                "inverse-primary": "#ba1a20",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#c6c6c7",
+                "on-primary-container": "#fff2f0",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#f4f4f4",
+                "on-tertiary": "#2f3131",
+                "crimson-glare": "#FF5252",
+                "inverse-on-surface": "#3e2c2a",
+                "surface-bright": "#473533",
+                "on-tertiary-fixed-variant": "#454747",
+                "secondary": "#c8c6c5",
+                "surface-container-highest": "#43302e",
+                "tertiary-container": "#6e7070",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#1a1c1c",
+                "primary": "#ffb3ac",
+                "on-error": "#690005",
+                "on-primary-fixed": "#410003",
+                "warning-amber": "#FFC107",
+                "outline-variant": "#5b403d",
+                "background": "#1e0f0e",
+                "on-secondary-fixed-variant": "#474646",
+                "primary-fixed-dim": "#ffb3ac",
+                "on-primary-fixed-variant": "#930010",
+                "inverse-surface": "#f9dcd9",
+                "on-background": "#f9dcd9",
+                "surface-container-high": "#372624",
+                "success-green": "#4CAF50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "base": "8px",
+                "xl": "80px",
+                "md": "24px",
+                "sm": "12px",
+                "xs": "4px",
+                "gutter": "24px",
+                "lg": "48px",
+                "max-width": "1440px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-bold": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        /* Hide scrollbar for cleaner look in the cart sidebar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full top-0 sticky shadow-sm z-50">
+<div class="flex items-center justify-between px-gutter py-sm max-w-[1600px] mx-auto">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-secondary-container/50 transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary-fixed">
+                    ELITE PRO SPORTS
+                </div>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<nav class="flex gap-md">
+<a class="text-primary font-bold border-b-2 border-primary py-2 px-1" href="#">Equipamiento</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/50 transition-colors py-2 px-1 rounded-sm" href="#">Ropa</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/50 transition-colors py-2 px-1 rounded-sm" href="#">Calzado</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-secondary-container/50 transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-secondary-container/50 transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute top-1 right-1 w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-bold text-[10px] rounded-full flex items-center justify-center leading-none">3</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-secondary-container/50 transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center hidden sm:flex">
+<a class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" href="/login_admin">account_circle</a>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Layout -->
+<div class="flex max-w-[1600px] w-full mx-auto px-gutter py-lg gap-lg items-start flex-grow">
+<!-- Left Sidebar (Filters) -->
+<aside class="w-[260px] shrink-0 sticky top-[100px] hidden lg:flex flex-col gap-md bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Filtros</h2>
+<button class="font-label-bold text-label-bold text-primary hover:text-primary-container transition-colors">LIMPIAR</button>
+</div>
+<div class="w-full h-px bg-outline-variant/50"></div>
+<!-- Filter Category: Price -->
+<div class="flex flex-col gap-sm py-sm">
+<h3 class="font-body-md font-semibold text-on-surface">Rango de Precios</h3>
+<div class="flex gap-sm items-center">
+<input class="w-full bg-surface border border-outline-variant rounded-lg px-sm py-2 font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Mín" type="text"/>
+<span class="text-on-surface-variant">-</span>
+<input class="w-full bg-surface border border-outline-variant rounded-lg px-sm py-2 font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Máx" type="text"/>
+</div>
+<button class="w-full mt-2 bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-bold text-label-bold py-2 rounded-lg transition-colors">APLICAR</button>
+</div>
+<div class="w-full h-px bg-outline-variant/50"></div>
+<!-- Filter Category: Brand -->
+<div class="flex flex-col gap-sm py-sm">
+<h3 class="font-body-md font-semibold text-on-surface">Marca</h3>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface transition-colors" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">Apex Athletics</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface transition-colors" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">Velocity Pro</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface transition-colors" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">Titan Forge</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface transition-colors" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">Nova Gear</span>
+</label>
+</div>
+</div>
+<div class="w-full h-px bg-outline-variant/50"></div>
+<!-- Filter Category: Rating -->
+<div class="flex flex-col gap-sm py-sm">
+<h3 class="font-body-md font-semibold text-on-surface">Valoración</h3>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-primary focus:ring-primary border-outline-variant bg-surface transition-colors" name="rating" type="radio"/>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-2">&amp; más</span>
+</div>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-primary focus:ring-primary border-outline-variant bg-surface transition-colors" name="rating" type="radio"/>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-2">&amp; más</span>
+</div>
+</label>
+</div>
+</div>
+</aside>
+<!-- Center Content -->
+<main class="flex-grow flex flex-col gap-lg min-w-0">
+<!-- Hero Banner -->
+<section class="relative w-full h-[320px] rounded-2xl overflow-hidden flex items-center px-xl shadow-[0px_12px_32px_rgba(51,65,85,0.12)] bg-inverse-surface group">
+<div class="absolute inset-0 bg-gradient-to-r from-on-secondary-fixed to-transparent z-10 opacity-80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A dynamic, wide-angle shot of a high-tech indoor sports facility with professional athletes testing agility equipment. The scene is brightly lit with cool, white corporate lighting, emphasizing the premium quality and modern aesthetic of the performance gear. Deep shadows contrast with bright highlights, creating a high-energy, high-contrast atmosphere suitable for an elite sporting brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJDoA80uSTuRCZHAfdXtRj5M2GIybQIdNACOUmU9VpjdRgeBHaHG6lRe3skWmcCrHd_ZDIIkqkLzpXVaj_uxpW2VXqCUaZ98WNPPB8j0s29bnKzjYiXZCmTDqbuVEmXAcxTwfAI5qZEO0K_PajOonQdgIrN9oiTpmzfHVEtdO-93MvqwX198ajOsfHJUMBf4QAwE0AjJEIK_uUAwB911PEYhc0GT8aDd18OU9hXT4G326pLzb-cetg')"></div>
+<div class="relative z-20 max-w-lg flex flex-col gap-sm">
+<div class="inline-flex items-center gap-2 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full w-fit">
+<span class="material-symbols-outlined text-on-primary text-[14px]">local_fire_department</span>
+<span class="font-label-bold text-label-bold text-on-primary">NUEVAS LLEGADAS</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-primary font-extrabold leading-tight tracking-tight">Equipamiento Deportivo<br/>de Alto Rendimiento</h1>
+<p class="font-body-lg text-body-lg text-secondary-fixed-dim mt-2">Equipa tus instalaciones con herramientas de nivel profesional diseñadas para máxima durabilidad y precisión.</p>
+<button class="mt-4 bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-bold text-label-bold py-3 px-6 rounded-lg w-fit transition-colors shadow-sm active:translate-y-px">
+                        VER COLECCIÓN
+                    </button>
+</div>
+</section>
+<!-- Active Filters Bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm flex-wrap">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mostrando 24 resultados</span>
+<div class="h-4 w-px bg-outline-variant mx-2"></div>
+<div class="flex gap-2">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full font-label-md text-label-md text-on-surface cursor-pointer hover:bg-outline-variant/30 transition-colors">
+                            Velocity Pro <span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ordenar por:</span>
+<select class="bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-1.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>Recomendado</option>
+<option>Precio: Menor a Mayor</option>
+<option>Precio: Mayor a Menor</option>
+<option>Más recientes</option>
+</select>
+</div>
+</div>
+<!-- Product Grid (4 Columns Desktop) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-sm md:gap-md">
+<!-- Product Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(51,65,85,0.05)] hover:shadow-[0px_12px_32px_rgba(51,65,85,0.12)] transition-all duration-300 hover:-translate-y-1 flex flex-col group relative">
+<div class="absolute top-2 left-2 z-10">
+<span class="bg-error text-on-error font-label-bold text-[10px] px-2 py-1 rounded-sm tracking-wider">OFERTA</span>
+</div>
+<div class="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-surface-container-lowest text-on-surface-variant p-2 rounded-full shadow-sm hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="aspect-square w-full bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="A clean, studio-lit photo of a matte black professional adjustable kettlebell sitting on a reflective white surface. The lighting emphasizes the texture of the handle and the precision numbering on the dial. The scene is bright, high-contrast, and suitable for a premium eCommerce catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBuQIzEGzzatyRDBnmYYu2L6evGOE2qWjdEMLMVtcs2Lo0aKCbXqqtwTdu2-FKEVmwMjeSiA9KNWQi1W1MYcGoANH9JnnBpk0XWv-BYwcNXJRsA01UTI_654GHnqmvmMBXHjlxUqK4PKir2EmtD86LYdgEnDoXsyOerGJ6Ds-0FamnPTn9XSfO-tKfl2xVgo1JLDzvfiWZKc74Mxko4DJXpx7KitNfZTV0A_8ViUfZSKN_RtPDL44m"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="font-label-md text-label-md text-secondary mb-1">Velocity Pro</div>
+<h3 class="font-body-md font-semibold text-on-surface leading-tight mb-2 line-clamp-2">Pesa Rusa Ajustable Pro-Series 40lb</h3>
+<div class="mt-auto flex items-end justify-between">
+<div>
+<div class="font-body-lg font-bold text-on-surface">$129.99</div>
+<div class="font-label-md text-secondary line-through">$149.99</div>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-[0_2px_0_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(51,65,85,0.05)] hover:shadow-[0px_12px_32px_rgba(51,65,85,0.12)] transition-all duration-300 hover:-translate-y-1 flex flex-col group relative">
+<div class="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-surface-container-lowest text-on-surface-variant p-2 rounded-full shadow-sm hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="aspect-square w-full bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="A detailed close-up studio shot of textured, high-grip athletic training battle ropes coiled neatly on a bright white background. The corporate lighting casts sharp, crisp shadows, highlighting the durable weave and premium build quality of the equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChg9ozn0npUb87ti_HBlEawunmrAzDwujoN1xnpJUwBOODVyVkNXQN06jwYctUFHoG4C8h1ypA7szVWy9jIyXgRPB6kETxEgqZfIARt8A18aImUML-SWwxEkFDs5ApU5yur64_lq8U2uuKwjKXseWhIg9eGdP6uqK8q3bn_wdbeyZm-Llym-PDPwS0GOrz2Sqj2CuGR6NwIW3P0PkxqFH_nNJ1O5yDh6mKpB1H0YRahOPi3cnhtTDH"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="font-label-md text-label-md text-secondary mb-1">Titan Forge</div>
+<h3 class="font-body-md font-semibold text-on-surface leading-tight mb-2 line-clamp-2">Cuerdas de Batalla de Alta Resistencia 50ft</h3>
+<div class="mt-auto flex items-end justify-between">
+<div>
+<div class="font-body-lg font-bold text-on-surface">$89.00</div>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-[0_2px_0_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(51,65,85,0.05)] hover:shadow-[0px_12px_32px_rgba(51,65,85,0.12)] transition-all duration-300 hover:-translate-y-1 flex flex-col group relative">
+<div class="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-surface-container-lowest text-on-surface-variant p-2 rounded-full shadow-sm hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="aspect-square w-full bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern agility ladder laid out straight against a pristine white studio background. The rungs are a vibrant high-visibility orange, contrasting sharply with the black nylon straps. The lighting is even and bright, creating a clean, professional aesthetic for a sports commerce layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7zP1NJtzXLE6-eN90ta2L-nI6EP57XcapX_jnRCWGz2nyMMv0T7FOCceJWH0UJmEAOFdRN1Rj9qCf__H7n3ENqGPfONgu6autXDabFDJEaqRBBhiqjICIGdQwJVnON37hAcVllALeI1s4-r6iHSkeEL0Ccpd1NHL56CQHxnlNH_M0eI7ZIGaulSrKFkB_N7jT2wb7QyvAQourd21cpbxdIdq8fOOnyA3hRsp2wmh9wkxo4PIFU8AB"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="font-label-md text-label-md text-secondary mb-1">Velocity Pro</div>
+<h3 class="font-body-md font-semibold text-on-surface leading-tight mb-2 line-clamp-2">Set de Entrenamiento de Escalera de Agilidad Elite</h3>
+<div class="mt-auto flex items-end justify-between">
+<div>
+<div class="font-body-lg font-bold text-on-surface">$34.50</div>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-[0_2px_0_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(51,65,85,0.05)] hover:shadow-[0px_12px_32px_rgba(51,65,85,0.12)] transition-all duration-300 hover:-translate-y-1 flex flex-col group relative">
+<div class="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-surface-container-lowest text-on-surface-variant p-2 rounded-full shadow-sm hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="aspect-square w-full bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="A professional product shot of a pair of carbon-fiber track spikes. The shoes are electric blue with white accents, set against a stark white background. High-contrast studio lighting highlights the aerodynamic curves and metallic spikes, conveying speed, precision, and high-end manufacturing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn2R_E1vB2DxlmznvnT1x-KU01GZSwafZyEuUa1MQD7kdhcekTCrAf9j4LnLJ6i_t7xbyaUhlKZCQG32aFoN1myJXufirE_YIvR5sBF91jrwvvK75KlZt0bulSlpCLdxoW1TXzJgY8Amu76jmTtbNAAAJ4DJQE1LWShkGIusqZMPPRe4A7s51g-_-WBVH_Fynk0s9pbrpeqW_bIWhxBhg-qDC1-CdvHoSuLxuqnoy6v4pG0E9Hq9vU"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="font-label-md text-label-md text-secondary mb-1">Apex Athletics</div>
+<h3 class="font-body-md font-semibold text-on-surface leading-tight mb-2 line-clamp-2">Zapatillas de Atletismo Carbon Elite</h3>
+<div class="mt-auto flex items-end justify-between">
+<div>
+<div class="font-body-lg font-bold text-on-surface">$185.00</div>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-[0_2px_0_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 5 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(51,65,85,0.05)] hover:shadow-[0px_12px_32px_rgba(51,65,85,0.12)] transition-all duration-300 hover:-translate-y-1 flex flex-col group relative">
+<div class="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-surface-container-lowest text-on-surface-variant p-2 rounded-full shadow-sm hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="aspect-square w-full bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist, high-key studio photo of a set of premium resistance bands in varying shades of slate gray and primary blue. They are arranged in a dynamic, sweeping curve on a pure white surface. The lighting is soft but directional, creating subtle drop shadows that elevate the products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM1pdsW9s4SFpNkNOwp-nICQ5FWGMjSNqfHPX-eMnY0hxFdmMdlrSPugdzVX_opO_-WZihZdYQEQRLqUDhRa4jc4K8HGnZFGCIUkeuqDToZuCLphyej_BHasa86xR73I7GAiCyFCIqdk3i2p9iGaKXh6SQTHtY4WlGBdw2P3LQ6uALEbrHgwyFRnQeBAfn385KO5d7m84stFkvDoSYFvek81vmLTYDlo6eZG5cW8gAkH7sYmaAyfJ8"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="font-label-md text-label-md text-secondary mb-1">Velocity Pro</div>
+<h3 class="font-body-md font-semibold text-on-surface leading-tight mb-2 line-clamp-2">Paquete de Bandas de Resistencia Pro</h3>
+<div class="mt-auto flex items-end justify-between">
+<div>
+<div class="font-body-lg font-bold text-on-surface">$45.00</div>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-[0_2px_0_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Additional Placeholder Cards for Grid layout visualization -->
+<div class="border border-dashed border-outline-variant rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface-variant font-label-bold min-h-[300px]">
+                    ESPACIO PARA PRODUCTO
+                </div>
+<div class="border border-dashed border-outline-variant rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface-variant font-label-bold min-h-[300px]">
+                    ESPACIO PARA PRODUCTO
+                </div>
+<div class="border border-dashed border-outline-variant rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface-variant font-label-bold min-h-[300px]">
+                    ESPACIO PARA PRODUCTO
+                </div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center mt-lg mb-xl">
+<nav class="flex items-center gap-1">
+<button class="p-2 text-secondary hover:bg-surface-container-high rounded-lg transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-bold text-on-primary bg-primary rounded-lg shadow-sm">1</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-bold text-on-surface hover:bg-surface-container-high rounded-lg transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-bold text-on-surface hover:bg-surface-container-high rounded-lg transition-colors">3</button>
+<span class="px-2 text-secondary">...</span>
+<button class="w-10 h-10 flex items-center justify-center font-label-bold text-on-surface hover:bg-surface-container-high rounded-lg transition-colors">12</button>
+<button class="p-2 text-secondary hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</nav>
+</div>
+</main>
+<!-- Right Sidebar (Shopping Cart / Quote List) -->
+<aside class="w-[320px] shrink-0 sticky top-[100px] bg-surface-container-lowest border border-outline-variant rounded-xl flex-col shadow-sm hidden 2xl:flex h-[calc(100vh-140px)] overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-lowest z-10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">receipt_long</span>
+<h2 class="font-headline-md text-headline-md text-on-surface m-0 leading-none">Cotización Actual</h2>
+</div>
+<span class="bg-primary-container text-on-primary-container font-label-bold text-[10px] px-2 py-1 rounded-full">3 ARTÍCULOS</span>
+</div>
+<!-- Cart Items Scrollable Area -->
+<div class="flex-grow overflow-y-auto p-md flex flex-col gap-sm bg-surface no-scrollbar">
+<!-- Cart Item 1 -->
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant flex gap-3 shadow-[0px_4px_12px_rgba(51,65,85,0.02)]">
+<div class="w-16 h-16 bg-surface-container-high rounded-md overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Thumbnail image of the Pro-Series Adjustable Kettlebell on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx7jKjTUe_0KzyUG6UKah6RKXP0YzIwUG0Ot-dSiMwE2BOCz5tJ4It6st9ANH_RYch-U6GJTujcUTD5b18uF1tx99NzVnX97794nJ_h-f-Hibu5nLEZtCI3NvDAdoSWfBC371puYU4MpElTcGlxkOQ0ETDPTIBN743E02QYm6aTCDeeu6WocmIHi6GkhkJqd64xo5wjyXiNxw4Ltl8wYyvb70GvtBAPL7W_oXO0wBrKaLFaNp00JUy"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-label-bold text-label-bold text-on-surface truncate">Pesa Rusa Pro-Series</h4>
+<div class="font-label-md text-secondary mt-1">40lb</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-body-sm font-bold text-on-surface">$129.99</span>
+<div class="flex items-center gap-2 bg-surface-container-low rounded-md px-1 border border-outline-variant/50">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<span class="font-label-bold text-[12px] w-4 text-center">1</span>
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant flex gap-3 shadow-[0px_4px_12px_rgba(51,65,85,0.02)]">
+<div class="w-16 h-16 bg-surface-container-high rounded-md overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Thumbnail image of the Heavy-Duty Battle Ropes on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBndk1Ask1QefBQB1dGOa-DzxALzg_fbnK9GOP9DzCJ7lZHVj6Dhl0xYJybiYuAZLaqEe0PZqMDF-dod6rgK-okhUJZyTAnamkf7mgeRLBxWnX-Eisw4zuHcHH7mUry1IIfvnjI3sVGARXViLeo3kwVJN1xYUQVV6wzlQ05-PiMywJtkftma4lnM2VdrkbwcVmdjVYB2Pm9mM9uKvbZWx_z1vq_TAqRXbRL_vhuG6A6dH-N4GzlksBY"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-label-bold text-label-bold text-on-surface truncate">Cuerdas de Alta Resistencia</h4>
+<div class="font-label-md text-secondary mt-1">50ft</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-body-sm font-bold text-on-surface">$178.00</span>
+<div class="flex items-center gap-2 bg-surface-container-low rounded-md px-1 border border-outline-variant/50">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<span class="font-label-bold text-[12px] w-4 text-center">2</span>
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart Footer / Total -->
+<div class="p-md border-t border-outline-variant bg-surface-container-lowest mt-auto z-10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-body-sm text-secondary">Subtotal</span>
+<span class="font-body-md font-semibold text-on-surface">$307.99</span>
+</div>
+<div class="flex justify-between items-center mb-4">
+<span class="font-body-sm text-secondary">Impuestos y Envío Est.</span>
+<span class="font-body-sm text-secondary">Calculado al pagar</span>
+</div>
+<div class="h-px w-full bg-outline-variant mb-4"></div>
+<div class="flex justify-between items-end mb-6">
+<span class="font-body-lg font-bold text-on-surface">Total</span>
+<span class="font-headline-md font-bold text-primary">$307.99</span>
+</div>
+<button class="w-full bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-bold text-label-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-[0_2px_0_0_rgba(0,0,0,0.2)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[18px]">request_quote</span>
+                    ENVIAR COTIZACIÓN
+                </button>
+</div>
+</aside>
+</div>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-inverse-on-surface mt-auto py-xl px-gutter border-t-4 border-primary">
+<div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-xl">
+<div class="flex flex-col gap-4">
+<div class="font-headline-lg text-headline-lg tracking-tighter text-on-primary">
+                    ELITE PRO SPORTS
+                </div>
+<p class="font-body-sm text-outline">Equipando campeones con equipo de precisión. Tu socio de confianza en rendimiento atlético y adquisición para instalaciones.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-on-primary uppercase tracking-wider">Productos</h4>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Entrenamiento de Fuerza</a>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Agilidad y Velocidad</a>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Equipamiento de Instalaciones</a>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Herramientas de Recuperación</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-on-primary uppercase tracking-wider">Soporte</h4>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Contáctanos</a>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Envíos y Devoluciones</a>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Información de Garantía</a>
+<a class="font-body-sm hover:text-primary-fixed transition-colors" href="#">Portal de Adquisiciones</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-on-primary uppercase tracking-wider">Conectar</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest/10 flex items-center justify-center hover:bg-primary transition-colors text-on-primary" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest/10 flex items-center justify-center hover:bg-primary transition-colors text-on-primary" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+<div class="mt-4">
+<span class="font-label-md text-outline block mb-2">Suscríbete a nuestro boletín</span>
+<div class="flex">
+<input class="bg-surface/10 border border-outline/30 rounded-l-md px-3 py-2 font-body-sm text-on-primary focus:outline-none focus:border-primary w-full" placeholder="Ingresar correo" type="email"/>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-3 rounded-r-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-[1600px] mx-auto mt-xl pt-md border-t border-outline/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-body-sm text-outline">© 2024 Elite Pro Sports. Todos los derechos reservados.</span>
+<div class="flex gap-4 font-body-sm text-outline">
+<a class="hover:text-on-primary transition-colors" href="#">Política de Privacidad</a>
+<a class="hover:text-on-primary transition-colors" href="#">Términos de Servicio</a>
+</div>
+</div>
+</footer>
+</body></html>

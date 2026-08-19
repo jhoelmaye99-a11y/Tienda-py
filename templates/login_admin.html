@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velocity Pro Equipment - Inicio de Sesión de Administrador</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-elevated": "#2C2C2C",
+                "on-secondary": "#313030",
+                "tertiary-fixed": "#e2e2e2",
+                "on-secondary-container": "#bab8b7",
+                "primary-fixed": "#ffdad6",
+                "secondary-fixed": "#e5e2e1",
+                "surface-dim": "#1e0f0e",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-surface-variant": "#e4beba",
+                "surface-charcoal": "#1E1E1E",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-low": "#271816",
+                "surface-tint": "#ffb3ac",
+                "surface-container-lowest": "#180a09",
+                "surface-variant": "#43302e",
+                "surface": "#1e0f0e",
+                "on-primary": "#680008",
+                "primary-container": "#d32f2f",
+                "on-surface": "#f9dcd9",
+                "outline": "#ab8985",
+                "surface-container": "#2c1b1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "secondary-container": "#4a4949",
+                "inverse-primary": "#ba1a20",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#c6c6c7",
+                "on-primary-container": "#fff2f0",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#f4f4f4",
+                "on-tertiary": "#2f3131",
+                "crimson-glare": "#FF5252",
+                "inverse-on-surface": "#3e2c2a",
+                "surface-bright": "#473533",
+                "on-tertiary-fixed-variant": "#454747",
+                "secondary": "#c8c6c5",
+                "surface-container-highest": "#43302e",
+                "tertiary-container": "#6e7070",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#1a1c1c",
+                "primary": "#ffb3ac",
+                "on-error": "#690005",
+                "on-primary-fixed": "#410003",
+                "warning-amber": "#FFC107",
+                "outline-variant": "#5b403d",
+                "background": "#1e0f0e",
+                "on-secondary-fixed-variant": "#474646",
+                "primary-fixed-dim": "#ffb3ac",
+                "on-primary-fixed-variant": "#930010",
+                "inverse-surface": "#f9dcd9",
+                "on-background": "#f9dcd9",
+                "surface-container-high": "#372624",
+                "success-green": "#4CAF50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "base": "8px",
+                "xl": "80px",
+                "md": "24px",
+                "sm": "12px",
+                "xs": "4px",
+                "gutter": "24px",
+                "lg": "48px",
+                "max-width": "1440px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-bold": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+          .bg-pattern {
+              background-image: radial-gradient(#5b403d 1px, transparent 1px);
+              background-size: 24px 24px;
+          }
+      </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center bg-pattern font-body-md text-on-background relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-40">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary-fixed-dim blur-3xl opacity-20"></div>
+<div class="absolute top-[60%] -right-[10%] w-[40%] h-[60%] rounded-full bg-secondary-fixed-dim blur-3xl opacity-20"></div>
+</div>
+<!-- Main Container -->
+<main class="relative z-10 w-full max-w-[440px] px-margin-mobile md:px-0">
+<!-- Login Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(0,0,0,0.4)] border border-surface-container-high overflow-hidden flex flex-col">
+<!-- Card Header -->
+<div class="px-gutter pt-lg pb-md flex flex-col items-center border-b border-surface-container">
+<div class="w-16 h-16 bg-primary-container rounded-lg flex items-center justify-center mb-sm shadow-sm">
+<span class="material-symbols-outlined text-on-primary-container text-display-lg" style="font-variation-settings: 'FILL' 1;">
+                        precision_manufacturing
+                    </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg text-primary tracking-tighter text-center uppercase">Velocity Pro Equipment</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Acceso al Panel de Administración</p>
+</div>
+<!-- Card Body / Form -->
+<div class="p-gutter">
+<form action="/login_admin" class="flex flex-col gap-md" method="POST">
+<!-- Email Field -->
+<div class="relative">
+<label class="absolute -top-2.5 left-3 bg-surface-container-lowest px-1 font-label-md text-label-md text-secondary" for="email">Correo Electrónico</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline-variant">
+                                mail
+                            </span>
+<input class="w-full pl-10 pr-4 py-3 bg-transparent border border-outline rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" id="email" name="username" placeholder="admin@velocitypro.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="relative">
+<label class="absolute -top-2.5 left-3 bg-surface-container-lowest px-1 font-label-md text-label-md text-secondary" for="password">Contraseña</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline-variant">
+                                lock
+                            </span>
+<input class="w-full pl-10 pr-10 py-3 bg-transparent border border-outline rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 text-outline-variant hover:text-on-surface transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined">
+                                    visibility_off
+                                </span>
+</button>
+</div>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between mt-xs">
+<div class="flex items-center gap-2">
+<input class="w-4 h-4 rounded border-outline text-primary focus:ring-primary bg-surface-container-lowest" id="remember" name="remember" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="remember">Recordarme</label>
+</div>
+<a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors" href="#">¿Olvidaste tu contraseña?</a>
+</div>
+<!-- Submit Button -->
+<button class="w-full mt-sm py-3 bg-primary text-on-primary font-label-bold text-label-bold rounded-lg shadow-[0px_2px_4px_rgba(0,0,0,0.1)] hover:bg-primary-container active:shadow-none active:translate-y-[1px] transition-all flex justify-center items-center gap-2 uppercase tracking-wide" type="submit">
+    Inicio de Sesión Seguro
+    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+
+
+</form>
+</div>
+<!-- Card Footer -->
+<div class="bg-surface-container-low px-gutter py-sm border-t border-surface-container text-center">
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">
+                        shield
+                    </span>
+                    Solo Personal Autorizado
+                </p>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="mt-lg flex justify-center gap-md font-label-md text-label-md text-secondary">
+<a class="hover:text-primary transition-colors" href="#">Ayuda y Soporte</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Estado del Sistema</a>
+</div>
+</main>
+<script>
+        // Simple interaction for the password visibility toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.querySelector('button[type="button"]');
+            const passwordInput = document.getElementById('password');
+            const icon = toggleButton.querySelector('.material-symbols-outlined');
+
+            toggleButton.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.textContent = 'visibility';
+                } else {
+                    passwordInput.type = 'password';
+                    icon.textContent = 'visibility_off';
+                }
+            });
+        });
+    </script>
+</body></html>
