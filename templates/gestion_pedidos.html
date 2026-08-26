@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Pedidos - Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-elevated": "#2C2C2C",
+                "on-secondary": "#313030",
+                "tertiary-fixed": "#e2e2e2",
+                "on-secondary-container": "#bab8b7",
+                "primary-fixed": "#ffdad6",
+                "secondary-fixed": "#e5e2e1",
+                "surface-dim": "#1e0f0e",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-surface-variant": "#e4beba",
+                "surface-charcoal": "#1E1E1E",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-low": "#271816",
+                "surface-tint": "#ffb3ac",
+                "surface-container-lowest": "#180a09",
+                "surface-variant": "#43302e",
+                "surface": "#1e0f0e",
+                "on-primary": "#680008",
+                "primary-container": "#d32f2f",
+                "on-surface": "#f9dcd9",
+                "outline": "#ab8985",
+                "surface-container": "#2c1b1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "secondary-container": "#4a4949",
+                "inverse-primary": "#ba1a20",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#c6c6c7",
+                "on-primary-container": "#fff2f0",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#f4f4f4",
+                "on-tertiary": "#2f3131",
+                "crimson-glare": "#FF5252",
+                "inverse-on-surface": "#3e2c2a",
+                "surface-bright": "#473533",
+                "on-tertiary-fixed-variant": "#454747",
+                "secondary": "#c8c6c5",
+                "surface-container-highest": "#43302e",
+                "tertiary-container": "#6e7070",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#1a1c1c",
+                "primary": "#ffb3ac",
+                "on-error": "#690005",
+                "on-primary-fixed": "#410003",
+                "warning-amber": "#FFC107",
+                "outline-variant": "#5b403d",
+                "background": "#1e0f0e",
+                "on-secondary-fixed-variant": "#474646",
+                "primary-fixed-dim": "#ffb3ac",
+                "on-primary-fixed-variant": "#930010",
+                "inverse-surface": "#f9dcd9",
+                "on-background": "#f9dcd9",
+                "surface-container-high": "#372624",
+                "success-green": "#4CAF50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "base": "8px",
+                "xl": "80px",
+                "md": "24px",
+                "sm": "12px",
+                "xs": "4px",
+                "gutter": "24px",
+                "lg": "48px",
+                "max-width": "1440px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-bold": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Ambient shadow overrides based on style guide */
+        .shadow-level-1 { box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); }
+        .shadow-level-2 { box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.4); }
+        .btn-shadow { box-shadow: 0px 2px 0px rgba(0,0,0,0.2); }
+        
+        /* Floating label styles */
+        .floating-input:focus + .floating-label,
+        .floating-input:not(:placeholder-shown) + .floating-label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #ffb3ac; /* primary */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md h-screen flex overflow-hidden">
+<!-- NavigationDrawer (Shared Component) -->
+<nav class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low border-r border-outline-variant flex flex-col gap-base p-sm z-40">
+<!-- Header Profile -->
+<div class="flex items-center gap-sm p-sm mb-md">
+<img class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a corporate procurement manager in a modern office setting. The individual is dressed in sharp business casual attire, well-lit by natural light coming from an off-screen window, presenting a confident and approachable demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTFWae71FLESq_fPTJZxPASUlHwCv2efZcrvddltBdJbCa17TeDO_hubgn92cf9knfV-XjHG4gV7wGWftzz0dJDY_tCJSP__7mnfxn3ynx5h9UL_oEy88cUL2sqNgH5j2f2qyvm9yDfHSE__y1LY0IjCaSzRMqQZt4kHtZWHQ4PpmM3Q9RWCj8EFGCKId7hM8mZ2auodvtsY98lXkyjNyR6_vePNeXzzjrxpeThW7tos4_snXWnJdL"/>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary">Panel de Administración</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Gerente de Compras</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-high transition-all active:translate-x-1 duration-200" href="{{ url_for('dashboard_admin') }}">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Panel de Control</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-high transition-all active:translate-x-1 duration-200" href="{{ url_for('gestion_productos') }}">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Productos</span>
+</a>
+<!-- Active Tab: Orders -->
+<a class="flex items-center gap-sm px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-full hover:bg-surface-container-high transition-all active:translate-x-1 duration-200" href="{{ url_for('gestion_pedidos') }}">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Pedidos</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-high transition-all active:translate-x-1 duration-200" href="{{ url_for('gestion_clientes') }}">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Clientes</span>
+</a>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[280px] flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Header -->
+<header class="flex justify-between items-end px-margin-desktop py-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Gestión de Pedidos</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Administre el flujo de compras y actualizaciones de estado.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded-DEFAULT btn-shadow hover:bg-primary-container hover:text-on-primary-container transition-colors active:shadow-none flex items-center gap-xs" onclick="toggleModal()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Añadir Pedido
+            </button>
+</header>
+<!-- Content Canvas -->
+<div class="px-margin-desktop pb-margin-desktop flex-1 overflow-auto">
+<!-- Data Table Card (Level 1 Elevation) -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 overflow-hidden flex flex-col">
+<table class="w-full text-left border-collapse min-w-max">
+<thead class="bg-surface-container-low border-b border-outline-variant font-label-bold text-label-bold text-secondary uppercase">
+<tr>
+<th class="py-4 px-md">ID Pedido</th>
+<th class="py-4 px-md">Cliente ID</th>
+<th class="py-4 px-md">Productos</th>
+<th class="py-4 px-md">Cant.</th>
+<th class="py-4 px-md">Fecha</th>
+<th class="py-4 px-md">Estado</th>
+<th class="py-4 px-md text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-outline-variant">
+<!-- Row 1 (Pending) -->
+<tr class="hover:bg-inverse-on-surface transition-colors">
+<td class="py-4 px-md font-label-md text-label-md text-primary">ORD-8902</td>
+<td class="py-4 px-md text-on-surface-variant">CLI-104</td>
+<td class="py-4 px-md">
+<span class="block truncate w-48 text-on-surface-variant" title="PRD-1A, PRD-2B, PRD-3C">PRD-1A, PRD-2B, PRD-3C</span>
+</td>
+<td class="py-4 px-md">14</td>
+<td class="py-4 px-md text-on-surface-variant">24 Oct 2023</td>
+<td class="py-4 px-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full font-label-bold text-label-bold bg-warning-amber/20 text-warning-amber">
+                                    Pendiente
+                                </span>
+</td>
+<td class="py-4 px-md text-right flex justify-end gap-sm">
+<button class="text-secondary hover:text-primary transition-colors p-1" title="Actualizar Estado">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors p-1" title="Editar">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="text-secondary hover:text-error transition-colors p-1" title="Eliminar">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 (Shipped) -->
+<tr class="hover:bg-inverse-on-surface transition-colors">
+<td class="py-4 px-md font-label-md text-label-md text-primary">ORD-8901</td>
+<td class="py-4 px-md text-on-surface-variant">CLI-092</td>
+<td class="py-4 px-md">
+<span class="block truncate w-48 text-on-surface-variant" title="PRD-4D">PRD-4D</span>
+</td>
+<td class="py-4 px-md">2</td>
+<td class="py-4 px-md text-on-surface-variant">22 Oct 2023</td>
+<td class="py-4 px-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full font-label-bold text-label-bold bg-success-green/20 text-success-green">
+                                    Enviado
+                                </span>
+</td>
+<td class="py-4 px-md text-right flex justify-end gap-sm">
+<button class="text-secondary hover:text-primary transition-colors p-1 opacity-50 cursor-not-allowed" disabled="" title="Actualizar Estado">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors p-1" title="Editar">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="text-secondary hover:text-error transition-colors p-1" title="Eliminar">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 (Pending) -->
+<tr class="hover:bg-inverse-on-surface transition-colors">
+<td class="py-4 px-md font-label-md text-label-md text-primary">ORD-8899</td>
+<td class="py-4 px-md text-on-surface-variant">CLI-201</td>
+<td class="py-4 px-md">
+<span class="block truncate w-48 text-on-surface-variant" title="PRD-5E, PRD-6F">PRD-5E, PRD-6F</span>
+</td>
+<td class="py-4 px-md">150</td>
+<td class="py-4 px-md text-on-surface-variant">20 Oct 2023</td>
+<td class="py-4 px-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full font-label-bold text-label-bold bg-warning-amber/20 text-warning-amber">
+                                    Pendiente
+                                </span>
+</td>
+<td class="py-4 px-md text-right flex justify-end gap-sm">
+<button class="text-secondary hover:text-primary transition-colors p-1" title="Actualizar Estado">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors p-1" title="Editar">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="text-secondary hover:text-error transition-colors p-1" title="Eliminar">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Overlay & Modal for 'Add New Order' (Level 2 Elevation) -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center" id="addOrderModal">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm transition-opacity" onclick="toggleModal()"></div>
+<!-- Modal Content -->
+<div class="relative bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-level-2 border border-outline-variant p-margin-desktop flex flex-col gap-lg transform transition-transform">
+<div class="flex justify-between items-center border-b border-outline-variant pb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Crear Nuevo Pedido</h2>
+<button class="text-on-surface-variant hover:text-error transition-colors" onclick="toggleModal()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-md">
+<!-- Client ID Field -->
+<div class="relative">
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="clientId" placeholder=" " type="text"/>
+<label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="clientId">ID del Cliente</label>
+</div>
+<!-- Products Field -->
+<div class="relative">
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productIds" placeholder=" " type="text"/>
+<label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="productIds">IDs de Productos (separados por coma)</label>
+</div>
+<!-- Quantity Field -->
+<div class="relative">
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="quantity" placeholder=" " type="number"/>
+<label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="quantity">Cantidad Total</label>
+</div>
+<!-- Actions -->
+<div class="flex justify-end gap-sm mt-md pt-sm">
+<button class="px-6 py-2 border-2 border-outline text-secondary font-label-bold text-label-bold rounded-DEFAULT hover:bg-surface-container-high transition-colors" onclick="toggleModal()" type="button">
+                        Cancelar
+                    </button>
+<!-- Using Vibrant Orange (tertiary-container conceptually for CTA) or Primary depending on strict interpretation. Using Primary for form submission consistency. -->
+<button class="px-6 py-2 bg-primary text-on-primary font-label-bold text-label-bold rounded-DEFAULT btn-shadow hover:bg-primary-container hover:text-on-primary-container transition-colors active:shadow-none" type="submit">
+                        Guardar Pedido
+                    </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+        function toggleModal() {
+            const modal = document.getElementById('addOrderModal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+    </script>
+</body></html>

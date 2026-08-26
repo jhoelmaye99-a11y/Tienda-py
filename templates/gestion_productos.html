@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Productos - Elite Pro Sports</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-elevated": "#2C2C2C",
+                "on-secondary": "#313030",
+                "tertiary-fixed": "#e2e2e2",
+                "on-secondary-container": "#bab8b7",
+                "primary-fixed": "#ffdad6",
+                "secondary-fixed": "#e5e2e1",
+                "surface-dim": "#1e0f0e",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-surface-variant": "#e4beba",
+                "surface-charcoal": "#1E1E1E",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-low": "#271816",
+                "surface-tint": "#ffb3ac",
+                "surface-container-lowest": "#180a09",
+                "surface-variant": "#43302e",
+                "surface": "#1e0f0e",
+                "on-primary": "#680008",
+                "primary-container": "#d32f2f",
+                "on-surface": "#f9dcd9",
+                "outline": "#ab8985",
+                "surface-container": "#2c1b1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "secondary-container": "#4a4949",
+                "inverse-primary": "#ba1a20",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#c6c6c7",
+                "on-primary-container": "#fff2f0",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#f4f4f4",
+                "on-tertiary": "#2f3131",
+                "crimson-glare": "#FF5252",
+                "inverse-on-surface": "#3e2c2a",
+                "surface-bright": "#473533",
+                "on-tertiary-fixed-variant": "#454747",
+                "secondary": "#c8c6c5",
+                "surface-container-highest": "#43302e",
+                "tertiary-container": "#6e7070",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#1a1c1c",
+                "primary": "#ffb3ac",
+                "on-error": "#690005",
+                "on-primary-fixed": "#410003",
+                "warning-amber": "#FFC107",
+                "outline-variant": "#5b403d",
+                "background": "#1e0f0e",
+                "on-secondary-fixed-variant": "#474646",
+                "primary-fixed-dim": "#ffb3ac",
+                "on-primary-fixed-variant": "#930010",
+                "inverse-surface": "#f9dcd9",
+                "on-background": "#f9dcd9",
+                "surface-container-high": "#372624",
+                "success-green": "#4CAF50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "base": "8px",
+                "xl": "80px",
+                "md": "24px",
+                "sm": "12px",
+                "xs": "4px",
+                "gutter": "24px",
+                "lg": "48px",
+                "max-width": "1440px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-bold": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for tables/panels */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c2c6d4; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #727784; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex overflow-hidden">
+<!-- Shared Component: NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low border-r border-outline-variant flex flex-col gap-base p-sm z-40 hidden md:flex">
+<!-- Header / Profile -->
+<div class="flex items-center gap-4 p-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img alt="Admin User" class="w-full h-full object-cover" data-alt="A professional headshot portrait of an administrator or procurement manager in a modern corporate setting. Clear lighting, neutral background, high-resolution and polished." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvL1eWZD36NOzUH1Xao4_spQjhY_OTp8DCD3QxuYjS-uPOHW27-Hs3fbw43BrXiJPb9HrxMUTtAioRmO8MwvK26rBtdH95KAHUHII8Zi_nwRhws9PXI0kU-dKhqF0TATs5R-dzXec6RterZLBD_wa0Damzs6zskuIanFqNmIPAxrNpYzsYB_qm2L111ADLT5AcCtHSpOROaI2VDI1wIcKTBhVlPbUjEn25jhlbE4zeWvTZ4x_jiQIv"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-on-surface">Gerente de Compras</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Panel de Administración</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2 w-full">
+<!-- Inactive Tab -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-all active:translate-x-1 duration-200" href="{{ url_for('dashboard_admin') }}">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Panel de Control</span>
+</a>
+<!-- Active Tab (Products) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-full transition-all active:translate-x-1 duration-200" href="{{ url_for('gestion_productos') }}">
+<span class="material-symbols-outlined text-[20px] icon-fill" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Productos</span>
+</a>
+<!-- Inactive Tab -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-all active:translate-x-1 duration-200" href="{{ url_for('gestion_pedidos') }}">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Pedidos</span>
+</a>
+<!-- Inactive Tab -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-all active:translate-x-1 duration-200" href="{{ url_for('gestion_clientes') }}">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Clientes</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-[280px] h-screen overflow-y-auto">
+<!-- Shared Component: TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-container-lowest z-30 shadow-sm">
+<div class="flex items-center justify-between px-gutter py-sm max-w-max-width mx-auto">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-primary hover:bg-secondary-container/50 rounded-full transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-headline-lg text-headline-lg tracking-tighter text-primary">ELITE PRO SPORTS</span>
+</div>
+<button class="p-2 text-primary hover:bg-secondary-container/50 rounded-full transition-colors active:scale-95 duration-100 relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Main Page Canvas -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop max-w-max-width mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Gestión de Productos</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Gestione el inventario, precios y niveles de stock.</p>
+</div>
+<!-- Primary Action Button -->
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-bold flex items-center gap-2 shadow-[0px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px] hover:bg-primary-container transition-all" onclick="document.getElementById('side-panel').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>AÑADIR NUEVO PRODUCTO</span>
+</button>
+</div>
+<!-- Toolbar (Search & Filter) -->
+<div class="flex flex-col lg:flex-row justify-between items-center gap-4 mb-6 bg-surface-container-lowest p-2 rounded-xl shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant/30">
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background border border-outline-variant rounded-lg font-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Buscar productos por ID o nombre..." type="text"/>
+</div>
+<div class="flex items-center gap-2 w-full lg:w-auto">
+<button class="flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-outline-variant rounded-lg font-label-bold text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>FILTRAR</span>
+</button>
+<button class="flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-outline-variant rounded-lg font-label-bold text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>EXPORTAR</span>
+</button>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0px_4px_12px_rgba(51,65,85,0.05)] overflow-hidden">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse whitespace-nowrap">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant">
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">ID</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Nombre del Producto</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Precio</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Stock</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Fecha de Llegada</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4 font-body-sm text-on-surface font-medium">#PRD-001</td>
+<td class="px-6 py-4 font-body-sm text-on-surface">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex-shrink-0 border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A pair of high-performance professional running shoes, electric blue with silver accents, shown in profile against a clean white studio background. Sharp lighting, commercial product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDualpdO_52jQC2_dxMyCeDSU1AUTA3yEEPf3Q5EWaPE2PFblEnGXxS-nwSZfDVRNT32mNnspSUjaOSTToZPuQNtpSjK7oE32FfpOi2xTA369U7wtMMM4HvJ9P4b_06nRdFnDF5dMwuNnaHQZfaWw278uO6sHUp7NFuISq1mm9CxWBwjhMNGMxHes6nXxIx5J248FLrur1y3GldI-jsd7tAPCkpNwRH9qcz0cEcQhH2uS72qVpI6l6t"/>
+</div>
+<span>Pro Elite Runner X</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-on-surface">$149.99</td>
+<td class="px-6 py-4 font-body-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-green/20 text-success-green font-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-success-green"></span> 245
+                                    </span>
+</td>
+<td class="px-6 py-4 font-body-sm text-on-surface-variant">12 Oct, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error hover:bg-error-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4 font-body-sm text-on-surface font-medium">#PRD-002</td>
+<td class="px-6 py-4 font-body-sm text-on-surface">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex-shrink-0 border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sleek carbon fiber tennis racket with a neon green grip tape, floating horizontally over a pristine white backdrop. High contrast, sharp focus, professional sports equipment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCG1CZpcQSoEl3tg5fPHdf816IIBnCi_UomH868bWqn0nOlo8r91sYfNX53In8nvHBou--YB8rJGF4vhSpDHun7IZbv9STiBQFpgeZn6Y0-fSjEAbgLeKop2AgfkfAZHrFotO9KUQXUlymJVzNU2_HKgw50ivTlnyigbEWPcOG50tW3oqGtal1a2_GzHjMcxNcTbf5GysRQU9eANqKoBaSi3LZuxUqXf8EBsSETPXzyQ8PvAGc6L9Y"/>
+</div>
+<span>Carbon Strike Racket</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-on-surface">$199.50</td>
+<td class="px-6 py-4 font-body-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-warning-amber/20 text-warning-amber font-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-warning-amber"></span> 12
+                                    </span>
+</td>
+<td class="px-6 py-4 font-body-sm text-on-surface-variant">14 Oct, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error hover:bg-error-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4 font-body-sm text-on-surface font-medium">#PRD-003</td>
+<td class="px-6 py-4 font-body-sm text-on-surface">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex-shrink-0 border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A set of premium steel dumbbells with a matte black rubberized finish, arranged neatly on a polished concrete surface. Cool, professional studio lighting highlighting the texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn1KzB30JGYjME-3s-8Fs9H2290LOa9rmPrsHszTKrlXv1RP2hKH6XKKVlynlm1DcEeNtxQCVrCbvTdDgQt5OxMs86abuyQOT2wLam5eAuo_lUJVR0UWXqSX0kvBhSSTFGYWDYtrw2h72u2tY0P_1sFZUaMxY6Rtj8aAoXEcztCuaqBFMdV8zacY8oIjF0K1OWc5Hv4uPrDk_Mj2xtr8Lht8Pu9EcNpuByHLEJ7OK4Ptgcrw6fOx5H"/>
+</div>
+<span>Hex Dumbbell Set (50lb)</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-on-surface">$85.00</td>
+<td class="px-6 py-4 font-body-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-crimson-glare/20 text-crimson-glare font-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson-glare"></span> 0
+                                    </span>
+</td>
+<td class="px-6 py-4 font-body-sm text-on-surface-variant">01 Nov, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error hover:bg-error-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="border-t border-outline-variant/30 px-6 py-4 flex items-center justify-between bg-surface-bright">
+<span class="font-body-sm text-on-surface-variant">Mostrando 1 a 3 de 124 resultados</span>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded-md text-secondary hover:bg-surface-container-high disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-md text-secondary hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Slide-over Panel (Add New Product Form) -->
+<!-- overlay -->
+<div class="fixed inset-0 bg-inverse-surface/40 z-50 hidden transition-opacity" id="side-panel-overlay" onclick="closeSidePanel()"></div>
+<!-- panel -->
+<div class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-surface-container-lowest shadow-[0px_12px_32px_rgba(51,65,85,0.12)] z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col border-l border-outline-variant" id="side-panel">
+<!-- Header -->
+<div class="flex items-center justify-between p-6 border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface">Añadir Nuevo Producto</h2>
+<button class="text-secondary hover:text-on-surface p-2 rounded-full hover:bg-surface-container-high transition-colors" onclick="closeSidePanel()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Form Content -->
+<div class="flex-1 overflow-y-auto p-6">
+<form class="flex flex-col gap-6">
+<!-- Image Upload Stub -->
+<div class="w-full h-40 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-secondary hover:bg-surface-container-lowest hover:border-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[32px] group-hover:text-primary mb-2">cloud_upload</span>
+<span class="font-label-bold">Subir Imagen del Producto</span>
+<span class="font-body-sm text-on-surface-variant mt-1">PNG, JPG hasta 5MB</span>
+</div>
+<!-- Input: ID -->
+<div class="relative group">
+<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productId" placeholder=" " type="text" value="PRD-"/>
+<label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productId">ID del Producto</label>
+</div>
+<!-- Input: Name -->
+<div class="relative group">
+<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productName" placeholder=" " type="text"/>
+<label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productName">Nombre del Producto</label>
+</div>
+<!-- Input: Price & Stock (Row) -->
+<div class="flex gap-4">
+<div class="relative group flex-1">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md mt-2">$</span>
+<input class="block w-full pl-8 pr-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productPrice" placeholder=" " type="number"/>
+<label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productPrice">Precio</label>
+</div>
+<div class="relative group flex-1">
+<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productStock" placeholder=" " type="number"/>
+<label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productStock">Stock Inicial</label>
+</div>
+</div>
+</form>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 border-t border-outline-variant bg-surface-bright flex gap-4">
+<button class="flex-1 px-4 py-3 border border-outline-variant rounded-lg font-label-bold text-secondary hover:bg-surface-container-high transition-colors text-center" onclick="closeSidePanel()">
+                CANCELAR
+            </button>
+<button class="flex-1 px-4 py-3 bg-tertiary-container text-on-tertiary-container rounded-lg font-label-bold hover:brightness-110 shadow-[0px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px] transition-all text-center">
+                GUARDAR PRODUCTO
+            </button>
+</div>
+</div>
+<script>
+        function closeSidePanel() {
+            document.getElementById('side-panel').classList.add('translate-x-full');
+            // Hide overlay if we added it properly, simplified for demonstration
+        }
+    </script>
+</body></html>
