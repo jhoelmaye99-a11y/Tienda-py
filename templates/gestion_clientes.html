@@ -242,10 +242,6 @@
 <h2 class="font-display-lg text-display-lg text-on-background">Gestión de Clientes</h2>
 <p class="font-body-lg text-body-lg text-secondary mt-xs">Gestione su directorio de clientes mayoristas y minoristas.</p>
 </div>
-<button class="bg-primary hover:bg-primary-container text-on-primary font-label-bold text-label-bold py-md px-lg rounded shadow-sm hover:shadow-md transition-all active:shadow-none active:translate-y-[1px] flex items-center gap-sm">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
-                    Añadir Nuevo Cliente
-                </button>
 </div>
 <!-- Toolbar (Search & Filter) -->
 <div class="flex gap-md w-full bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
@@ -351,22 +347,22 @@
 <!-- Quick Add Form Area (Bento style card for demonstration) -->
 <div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant">
 <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Añadir Cliente Rápido</h3>
-<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<form method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-md">
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Nombre *</label>
-<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" required="" type="text"/>
+<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="nombre" name="nombre" required="" type="text"/>
 </div>
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Apellido *</label>
-<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" required="" type="text"/>
+<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="apellido" name="apellido" required="" type="text"/>
 </div>
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Dirección de Correo *</label>
-<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" required="" type="email"/>
+<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="correo" name="correo" required="" type="text"/>
 </div>
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Número de Teléfono</label>
-<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" type="tel"/>
+<input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="telefono" name="telefono" type="text"/>
 </div>
 <div class="md:col-span-2 flex justify-end mt-sm">
 <button class="bg-surface-container-low border border-outline-variant text-secondary font-label-bold text-label-bold py-md px-lg rounded mr-sm hover:bg-surface-container-high transition-colors" type="button">Cancelar</button>
@@ -376,4 +372,5 @@
 </div>
 </div>
 </main>
-</body></html>
+</body>
+</html>

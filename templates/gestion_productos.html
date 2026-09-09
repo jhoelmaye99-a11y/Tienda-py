@@ -431,36 +431,29 @@
 </div>
 <!-- Form Content -->
 <div class="flex-1 overflow-y-auto p-6">
-<form class="flex flex-col gap-6">
+<form method="POST" class="flex flex-col gap-6">
 <!-- Image Upload Stub -->
 <div class="w-full h-40 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-secondary hover:bg-surface-container-lowest hover:border-primary transition-colors cursor-pointer group">
 <span class="material-symbols-outlined text-[32px] group-hover:text-primary mb-2">cloud_upload</span>
 <span class="font-label-bold">Subir Imagen del Producto</span>
 <span class="font-body-sm text-on-surface-variant mt-1">PNG, JPG hasta 5MB</span>
 </div>
-<!-- Input: ID -->
-<div class="relative group">
-<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productId" placeholder=" " type="text" value="PRD-"/>
-<label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productId">ID del Producto</label>
-</div>
 <!-- Input: Name -->
 <div class="relative group">
-<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productName" placeholder=" " type="text"/>
+<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="nombre" name="nombre" placeholder=" " type="text"/>
 <label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productName">Nombre del Producto</label>
 </div>
 <!-- Input: Price & Stock (Row) -->
 <div class="flex gap-4">
 <div class="relative group flex-1">
 <span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md mt-2">$</span>
-<input class="block w-full pl-8 pr-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productPrice" placeholder=" " type="number"/>
+<input class="block w-full pl-8 pr-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="precio" name="precio" placeholder=" " type="number"/>
 <label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productPrice">Precio</label>
 </div>
 <div class="relative group flex-1">
-<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productStock" placeholder=" " type="number"/>
+<input class="block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="stock" name="stock" placeholder=" " type="number"/>
 <label class="absolute text-body-sm text-outline duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="productStock">Stock Inicial</label>
 </div>
-</div>
-</form>
 </div>
 <!-- Footer Actions -->
 <div class="p-6 border-t border-outline-variant bg-surface-bright flex gap-4">
@@ -470,6 +463,8 @@
 <button class="flex-1 px-4 py-3 bg-tertiary-container text-on-tertiary-container rounded-lg font-label-bold hover:brightness-110 shadow-[0px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px] transition-all text-center">
                 GUARDAR PRODUCTO
             </button>
+</div>
+</form>
 </div>
 </div>
 <script>

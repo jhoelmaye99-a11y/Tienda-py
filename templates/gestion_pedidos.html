@@ -361,21 +361,25 @@
 <span class="material-symbols-outlined" data-icon="close">close</span>
 </button>
 </div>
-<form class="flex flex-col gap-md">
+<form method="POST" class="flex flex-col gap-md">
 <!-- Client ID Field -->
 <div class="relative">
-<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="clientId" placeholder=" " type="text"/>
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="id_cliente" name="id_cliente" placeholder=" " type="text"/>
 <label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="clientId">ID del Cliente</label>
 </div>
 <!-- Products Field -->
 <div class="relative">
-<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="productIds" placeholder=" " type="text"/>
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="id_producto" name="id_producto" placeholder=" " type="text"/>
 <label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="productIds">IDs de Productos (separados por coma)</label>
 </div>
 <!-- Quantity Field -->
 <div class="relative">
-<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="quantity" placeholder=" " type="number"/>
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="cantidad" name="cantidad" placeholder=" " type="number"/>
 <label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="quantity">Cantidad Total</label>
+</div>
+<div class="relative">
+<input class="floating-input block w-full px-4 pt-6 pb-2 text-body-md text-on-surface bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors" id="fecha_pedido" name="fecha_pedido" placeholder=" " type="date"/>
+<label class="floating-label absolute text-body-md text-on-surface-variant duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-4" for="orderDate">Fecha del Pedido</label>
 </div>
 <!-- Actions -->
 <div class="flex justify-end gap-sm mt-md pt-sm">

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elite Pro Sports - Tienda</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-elevated": "#2C2C2C",
+                "on-secondary": "#313030",
+                "tertiary-fixed": "#e2e2e2",
+                "on-secondary-container": "#bab8b7",
+                "primary-fixed": "#ffdad6",
+                "secondary-fixed": "#e5e2e1",
+                "surface-dim": "#1e0f0e",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-surface-variant": "#e4beba",
+                "surface-charcoal": "#1E1E1E",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-low": "#271816",
+                "surface-tint": "#ffb3ac",
+                "surface-container-lowest": "#180a09",
+                "surface-variant": "#43302e",
+                "surface": "#1e0f0e",
+                "on-primary": "#680008",
+                "primary-container": "#d32f2f",
+                "on-surface": "#f9dcd9",
+                "outline": "#ab8985",
+                "surface-container": "#2c1b1a",
+                "on-secondary-fixed": "#1c1b1b",
+                "secondary-container": "#4a4949",
+                "inverse-primary": "#ba1a20",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#c6c6c7",
+                "on-primary-container": "#fff2f0",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#f4f4f4",
+                "on-tertiary": "#2f3131",
+                "crimson-glare": "#FF5252",
+                "inverse-on-surface": "#3e2c2a",
+                "surface-bright": "#473533",
+                "on-tertiary-fixed-variant": "#454747",
+                "secondary": "#c8c6c5",
+                "surface-container-highest": "#43302e",
+                "tertiary-container": "#6e7070",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#1a1c1c",
+                "primary": "#ffb3ac",
+                "on-error": "#690005",
+                "on-primary-fixed": "#410003",
+                "warning-amber": "#FFC107",
+                "outline-variant": "#5b403d",
+                "background": "#1e0f0e",
+                "on-secondary-fixed-variant": "#474646",
+                "primary-fixed-dim": "#ffb3ac",
+                "on-primary-fixed-variant": "#930010",
+                "inverse-surface": "#f9dcd9",
+                "on-background": "#f9dcd9",
+                "surface-container-high": "#372624",
+                "success-green": "#4CAF50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "base": "8px",
+                "xl": "80px",
+                "md": "24px",
+                "sm": "12px",
+                "xs": "4px",
+                "gutter": "24px",
+                "lg": "48px",
+                "max-width": "1440px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-bold": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        /* Hide scrollbar for cleaner look in the cart sidebar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
