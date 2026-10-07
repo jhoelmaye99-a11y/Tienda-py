@@ -20,93 +20,33 @@
 <thead class="bg-surface-container-low border-b border-outline-variant font-label-bold text-label-bold text-secondary uppercase">
 <tr>
 <th class="py-4 px-md">ID Pedido</th>
-<th class="py-4 px-md">Cliente ID</th>
-<th class="py-4 px-md">Productos</th>
-<th class="py-4 px-md">Cant.</th>
+<th class="py-4 px-md">Nombre Cliente</th>
+<th class="py-4 px-md">Nombre Producto</th>
+<th class="py-4 px-md">Cantidad</th>
 <th class="py-4 px-md">Fecha</th>
-<th class="py-4 px-md">Estado</th>
 <th class="py-4 px-md text-right">Acciones</th>
 </tr>
 </thead>
 <tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-outline-variant">
-<!-- Row 1 (Pending) -->
-<tr class="hover:bg-inverse-on-surface transition-colors">
-<td class="py-4 px-md font-label-md text-label-md text-primary">ORD-8902</td>
-<td class="py-4 px-md text-on-surface-variant">CLI-104</td>
-<td class="py-4 px-md">
-<span class="block truncate w-48 text-on-surface-variant" title="PRD-1A, PRD-2B, PRD-3C">PRD-1A, PRD-2B, PRD-3C</span>
-</td>
-<td class="py-4 px-md">14</td>
-<td class="py-4 px-md text-on-surface-variant">24 Oct 2023</td>
-<td class="py-4 px-md">
-<span class="inline-flex items-center px-3 py-1 rounded-full font-label-bold text-label-bold bg-warning-amber/20 text-warning-amber">
-                                    Pendiente
-                                </span>
-</td>
-<td class="py-4 px-md text-right flex justify-end gap-sm">
-<button class="text-secondary hover:text-primary transition-colors p-1" title="Actualizar Estado">
-<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
-</button>
-<button class="text-secondary hover:text-primary transition-colors p-1" title="Editar">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-<button class="text-secondary hover:text-error transition-colors p-1" title="Eliminar">
-<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
-</button>
-</td>
-</tr>
-<!-- Row 2 (Shipped) -->
-<tr class="hover:bg-inverse-on-surface transition-colors">
-<td class="py-4 px-md font-label-md text-label-md text-primary">ORD-8901</td>
-<td class="py-4 px-md text-on-surface-variant">CLI-092</td>
-<td class="py-4 px-md">
-<span class="block truncate w-48 text-on-surface-variant" title="PRD-4D">PRD-4D</span>
-</td>
-<td class="py-4 px-md">2</td>
-<td class="py-4 px-md text-on-surface-variant">22 Oct 2023</td>
-<td class="py-4 px-md">
-<span class="inline-flex items-center px-3 py-1 rounded-full font-label-bold text-label-bold bg-success-green/20 text-success-green">
-                                    Enviado
-                                </span>
-</td>
-<td class="py-4 px-md text-right flex justify-end gap-sm">
-<button class="text-secondary hover:text-primary transition-colors p-1 opacity-50 cursor-not-allowed" disabled="" title="Actualizar Estado">
-<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
-</button>
-<button class="text-secondary hover:text-primary transition-colors p-1" title="Editar">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-<button class="text-secondary hover:text-error transition-colors p-1" title="Eliminar">
-<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
-</button>
-</td>
-</tr>
-<!-- Row 3 (Pending) -->
-<tr class="hover:bg-inverse-on-surface transition-colors">
-<td class="py-4 px-md font-label-md text-label-md text-primary">ORD-8899</td>
-<td class="py-4 px-md text-on-surface-variant">CLI-201</td>
-<td class="py-4 px-md">
-<span class="block truncate w-48 text-on-surface-variant" title="PRD-5E, PRD-6F">PRD-5E, PRD-6F</span>
-</td>
-<td class="py-4 px-md">150</td>
-<td class="py-4 px-md text-on-surface-variant">20 Oct 2023</td>
-<td class="py-4 px-md">
-<span class="inline-flex items-center px-3 py-1 rounded-full font-label-bold text-label-bold bg-warning-amber/20 text-warning-amber">
-                                    Pendiente
-                                </span>
-</td>
-<td class="py-4 px-md text-right flex justify-end gap-sm">
-<button class="text-secondary hover:text-primary transition-colors p-1" title="Actualizar Estado">
-<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
-</button>
-<button class="text-secondary hover:text-primary transition-colors p-1" title="Editar">
-<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
-</button>
-<button class="text-secondary hover:text-error transition-colors p-1" title="Eliminar">
-<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
-</button>
-</td>
-</tr>
+    {% for pedido in data %}
+    <tr>
+        <td class="py-4 px-6">{{ pedido['id_pedido'] }}</td>
+        <td class="py-4 px-6">{{ pedido['nombre_cliente'] }} {{ pedido['apellido_cliente'] }}</td>
+        <td class="py-4 px-6">{{ pedido['nombre_producto'] }}</td>
+        <td class="py-4 px-6">{{ pedido['cantidad'] }}</td>
+        <td class="py-4 px-6">{{ pedido['fecha_pedido'] }}</td>
+        <td class="text-right">
+            <div class="flex items-center justify-end gap-xs">
+                <button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
+                    <span class="material-symbols-outlined text-[20px]">edit</span>
+                </button>
+                <button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
+                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                </button>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
 </tbody>
 </table>
 </div>

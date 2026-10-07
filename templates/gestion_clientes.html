@@ -49,60 +49,25 @@
 </tr>
 </thead>
 <tbody class="font-body-sm text-body-sm text-on-surface">
-<!-- Row 1 -->
-<tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
-<td class="py-sm px-md font-label-md text-label-md text-secondary">#CUS-0912</td>
-<td class="py-sm px-md">Sarah</td>
-<td class="py-sm px-md">Jenkins</td>
-<td class="py-sm px-md">s.jenkins@athletics-dept.edu</td>
-<td class="py-sm px-md">+1 (555) 123-4567</td>
-<td class="py-sm px-md text-right">
-<div class="flex items-center justify-end gap-xs">
-<button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
-<span class="material-symbols-outlined text-[20px]">edit</span>
-</button>
-<button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
-<span class="material-symbols-outlined text-[20px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
-<td class="py-sm px-md font-label-md text-label-md text-secondary">#CUS-0913</td>
-<td class="py-sm px-md">Marcus</td>
-<td class="py-sm px-md">Chen</td>
-<td class="py-sm px-md">mchen@pro-gear.com</td>
-<td class="py-sm px-md">+1 (555) 987-6543</td>
-<td class="py-sm px-md text-right">
-<div class="flex items-center justify-end gap-xs">
-<button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
-<span class="material-symbols-outlined text-[20px]">edit</span>
-</button>
-<button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
-<span class="material-symbols-outlined text-[20px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
-<td class="py-sm px-md font-label-md text-label-md text-secondary">#CUS-0914</td>
-<td class="py-sm px-md">Elena</td>
-<td class="py-sm px-md">Rodriguez</td>
-<td class="py-sm px-md">elena.r@cityleagues.org</td>
-<td class="py-sm px-md">+1 (555) 456-7890</td>
-<td class="py-sm px-md text-right">
-<div class="flex items-center justify-end gap-xs">
-<button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
-<span class="material-symbols-outlined text-[20px]">edit</span>
-</button>
-<button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
-<span class="material-symbols-outlined text-[20px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
+    {% for usuarios in data %}
+    <tr>
+        <td class="py-4 px-6">{{ usuarios['id_cliente'] }}</td>
+        <td class="py-4 px-6">{{ usuarios['nombre'] }}</td>
+        <td class="py-4 px-6">{{ usuarios['apellido'] }}</td>
+        <td class="py-4 px-6">{{ usuarios['correo'] }}</td>
+        <td class="py-4 px-6">{{ usuarios['telefono'] }}</td>
+        <td class="text-right">
+            <div class="flex items-center justify-end gap-xs">
+                <button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
+                    <span class="material-symbols-outlined text-[20px]">edit</span>
+                </button>
+                <button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
+                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                </button>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
 </tbody>
 </table>
 <!-- Pagination Footer -->

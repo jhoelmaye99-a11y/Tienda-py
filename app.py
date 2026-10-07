@@ -61,10 +61,17 @@ def gestion_productos():
             cur.close()
             conn.close() 
             return redirect(url_for('gestion_productos')) 
-        except Exception: 
+        except Exception as e: 
+            print("Error:", e)
             return redirect(url_for('gestion_productos'))
-
-    return render_template('gestion_productos.html')
+  #------ Consulta de datos de la tabla "PRODUCTOS" "SELECT" * FROM producto""------      
+    conn = connect_to_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM producto")
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('gestion_productos.html', data=data)
 
 
 
@@ -86,10 +93,31 @@ def gestion_pedidos():
             cur.close() 
             conn.close() 
             return redirect(url_for('gestion_pedidos')) 
-        except Exception: 
+        except Exception as e: 
+            print("Error:", e)
             return redirect(url_for('gestion_pedidos'))
-
-    return render_template('gestion_pedidos.html')
+        
+  #------ Consulta de datos de la tabla "PRODUCTOS" "SELECT" * FROM producto""------      
+    conn = connect_to_db()
+    cur = conn.cursor()
+    cur.execute("""
+    SELECT 
+        pedido.id_pedido,
+        usuarios.nombre AS nombre_cliente,
+        usuarios.apellido AS apellido_cliente,
+        producto.nombre AS nombre_producto,
+        pedido.cantidad,
+        pedido.fecha_pedido
+    FROM pedido
+    INNER JOIN usuarios
+        ON pedido.id_cliente = usuarios.id_cliente
+    INNER JOIN producto
+        ON pedido.id_producto = producto.id_producto
+    """)
+    data = cur.fetchall()
+    cur.close()
+    conn.close()    
+    return render_template('gestion_pedidos.html', data=data)
 
 
 
@@ -99,22 +127,33 @@ def gestion_pedidos():
 def gestion_clientes():
     if request.method == "POST": 
         nombre = request.form["nombre"] 
-        correo = request.form["correo"]
         apellido = request.form["apellido"]
+        correo = request.form["correo"]
         telefono = request.form["telefono"] 
         try: 
             conn = connect_to_db() 
             cur = conn.cursor()  
             cur.execute("INSERT INTO usuarios (nombre, apellido, correo, telefono) VALUES (%s, %s, %s, %s)", 
-                            (nombre, apellido, correo, telefono)) 
+                            (nombre, apellido, correo, telefono))
+            
+            
             conn.commit() 
             cur.close()
             conn.close() 
             return redirect(url_for('gestion_clientes')) 
         except Exception as e:
-            return f"Error al insertar: {e}"
+            print ("Error", e)
+            return redirect(url_for('gestion_clientes'))
 
-    return render_template('gestion_clientes.html')
+  #------ Consulta de datos de la tabla "USUARIOS" "SELECT" * FROM usuarios""------      
+    conn = connect_to_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM usuarios")
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    return render_template('gestion_clientes.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
