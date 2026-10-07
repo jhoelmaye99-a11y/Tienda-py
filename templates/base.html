@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="es"><head>
+<html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Elite Pro Sports - Tienda</title>
-<!-- Material Symbols -->
+<title>Gestión de Clientes - ELITE PRO SPORTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Inter -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Config -->
 <script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -198,18 +194,83 @@
     },
   }
 </script>
-<style>
-        body {
-            background-color: theme('colors.background');
-            color: theme('colors.on-background');
-        }
-        /* Hide scrollbar for cleaner look in the cart sidebar */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
 </head>
+<body class="bg-background text-on-surface font-body-md antialiased h-screen flex overflow-hidden">
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant flex flex-col gap-base p-sm z-50">
+<div class="flex flex-col mb-lg gap-sm items-start px-4 mt-md">
+<div class="flex items-center gap-sm">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a procurement manager. A 35-year-old caucasian male wearing a crisp white dress shirt and a subtle gray tie. Soft, professional studio lighting highlighting a confident expression. The background is a clean, neutral gray tone that matches the modern corporate UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANADa-uqzrZKa_53nYbn_d_OvSr5nbI-qbZQJJilcm8BqKGGvPQQfthOYWmm_s1RP5-1TEaIk666skGREbwo9ScebfblQPLHWIkTyqFxQTftjYquiSBA_Fki_-ROXKWYTPXcCBex5CbnVg8zpxArE6rJv43oBmbivT4dfVVlphLFL39yEosHKV90MWfbJ5zNrxXUO28EU2S95APBgMWFrl_zLKciEt0-OWGKBtU6rvhMZ_k4s8ZkA_"/>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Gerente de Compras</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Panel de Administración</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<!-- Panel de Control -->
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all
+{% if request.endpoint == 'dashboard_admin' %}
+    bg-primary-container text-on-primary-container font-bold
+{% else %}
+    text-on-surface-variant hover:bg-surface-container-high
+{% endif %}"
+href="{{ url_for('dashboard_admin') }}">
+
+    <span class="material-symbols-outlined">dashboard</span>
+    <span class="font-label-md text-label-md">Panel de Control</span>
+
+</a>
+
+
+<!-- Productos -->
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all
+{% if request.endpoint == 'gestion_productos' %}
+    bg-primary-container text-on-primary-container font-bold
+{% else %}
+    text-on-surface-variant hover:bg-surface-container-high
+{% endif %}"
+href="{{ url_for('gestion_productos') }}">
+
+    <span class="material-symbols-outlined">inventory_2</span>
+    <span class="font-label-md text-label-md">Productos</span>
+
+</a>
+
+
+<!-- Pedidos -->
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all
+{% if request.endpoint == 'gestion_pedidos' %}
+    bg-primary-container text-on-primary-container font-bold
+{% else %}
+    text-on-surface-variant hover:bg-surface-container-high
+{% endif %}"
+href="{{ url_for('gestion_pedidos') }}">
+
+    <span class="material-symbols-outlined">receipt_long</span>
+    <span class="font-label-md text-label-md">Pedidos</span>
+
+</a>
+
+
+<!-- Clientes -->
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all
+{% if request.endpoint == 'gestion_clientes' %}
+    bg-primary-container text-on-primary-container font-bold
+{% else %}
+    text-on-surface-variant hover:bg-surface-container-high
+{% endif %}"
+href="{{ url_for('gestion_clientes') }}">
+
+    <span class="material-symbols-outlined">group</span>
+    <span class="font-label-md text-label-md">Clientes</span>
+
+</a>
+</nav>
+</aside>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

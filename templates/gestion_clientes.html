@@ -1,231 +1,8 @@
-<!DOCTYPE html>
 
-<html lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gestión de Clientes - ELITE PRO SPORTS</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "surface-elevated": "#2C2C2C",
-                "on-secondary": "#313030",
-                "tertiary-fixed": "#e2e2e2",
-                "on-secondary-container": "#bab8b7",
-                "primary-fixed": "#ffdad6",
-                "secondary-fixed": "#e5e2e1",
-                "surface-dim": "#1e0f0e",
-                "secondary-fixed-dim": "#c8c6c5",
-                "on-surface-variant": "#e4beba",
-                "surface-charcoal": "#1E1E1E",
-                "tertiary-fixed-dim": "#c6c6c7",
-                "surface-container-low": "#271816",
-                "surface-tint": "#ffb3ac",
-                "surface-container-lowest": "#180a09",
-                "surface-variant": "#43302e",
-                "surface": "#1e0f0e",
-                "on-primary": "#680008",
-                "primary-container": "#d32f2f",
-                "on-surface": "#f9dcd9",
-                "outline": "#ab8985",
-                "surface-container": "#2c1b1a",
-                "on-secondary-fixed": "#1c1b1b",
-                "secondary-container": "#4a4949",
-                "inverse-primary": "#ba1a20",
-                "on-error-container": "#ffdad6",
-                "tertiary": "#c6c6c7",
-                "on-primary-container": "#fff2f0",
-                "error": "#ffb4ab",
-                "on-tertiary-container": "#f4f4f4",
-                "on-tertiary": "#2f3131",
-                "crimson-glare": "#FF5252",
-                "inverse-on-surface": "#3e2c2a",
-                "surface-bright": "#473533",
-                "on-tertiary-fixed-variant": "#454747",
-                "secondary": "#c8c6c5",
-                "surface-container-highest": "#43302e",
-                "tertiary-container": "#6e7070",
-                "error-container": "#93000a",
-                "on-tertiary-fixed": "#1a1c1c",
-                "primary": "#ffb3ac",
-                "on-error": "#690005",
-                "on-primary-fixed": "#410003",
-                "warning-amber": "#FFC107",
-                "outline-variant": "#5b403d",
-                "background": "#1e0f0e",
-                "on-secondary-fixed-variant": "#474646",
-                "primary-fixed-dim": "#ffb3ac",
-                "on-primary-fixed-variant": "#930010",
-                "inverse-surface": "#f9dcd9",
-                "on-background": "#f9dcd9",
-                "surface-container-high": "#372624",
-                "success-green": "#4CAF50"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.125rem",
-                "lg": "0.25rem",
-                "xl": "0.5rem",
-                "full": "0.75rem"
-        },
-        "spacing": {
-                "margin-mobile": "16px",
-                "base": "8px",
-                "xl": "80px",
-                "md": "24px",
-                "sm": "12px",
-                "xs": "4px",
-                "gutter": "24px",
-                "lg": "48px",
-                "max-width": "1440px",
-                "margin-desktop": "32px"
-        },
-        "fontFamily": {
-                "body-md": [
-                        "Inter"
-                ],
-                "body-lg": [
-                        "Inter"
-                ],
-                "label-bold": [
-                        "Inter"
-                ],
-                "display-lg": [
-                        "Inter"
-                ],
-                "headline-lg": [
-                        "Inter"
-                ],
-                "body-sm": [
-                        "Inter"
-                ],
-                "label-md": [
-                        "Inter"
-                ],
-                "headline-md": [
-                        "Inter"
-                ],
-                "headline-lg-mobile": [
-                        "Inter"
-                ]
-        },
-        "fontSize": {
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "letterSpacing": "0em",
-                                "fontWeight": "400"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "letterSpacing": "0em",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-bold": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.1em",
-                                "fontWeight": "800"
-                        }
-                ],
-                "display-lg": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.03em",
-                                "fontWeight": "800"
-                        }
-                ],
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "body-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "letterSpacing": "0em",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "500"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "700"
-                        }
-                ]
-        }
-},
-    },
-  }
-</script>
-</head>
-<body class="bg-background text-on-surface font-body-md antialiased h-screen flex overflow-hidden">
-<!-- NavigationDrawer -->
-<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant flex flex-col gap-base p-sm z-50">
-<div class="flex flex-col mb-lg gap-sm items-start px-4 mt-md">
-<div class="flex items-center gap-sm">
-<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a procurement manager. A 35-year-old caucasian male wearing a crisp white dress shirt and a subtle gray tie. Soft, professional studio lighting highlighting a confident expression. The background is a clean, neutral gray tone that matches the modern corporate UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANADa-uqzrZKa_53nYbn_d_OvSr5nbI-qbZQJJilcm8BqKGGvPQQfthOYWmm_s1RP5-1TEaIk666skGREbwo9ScebfblQPLHWIkTyqFxQTftjYquiSBA_Fki_-ROXKWYTPXcCBex5CbnVg8zpxArE6rJv43oBmbivT4dfVVlphLFL39yEosHKV90MWfbJ5zNrxXUO28EU2S95APBgMWFrl_zLKciEt0-OWGKBtU6rvhMZ_k4s8ZkA_"/>
-<div>
-<h2 class="font-headline-md text-headline-md text-primary">Gerente de Compras</h2>
-<p class="font-label-md text-label-md text-on-surface-variant">Panel de Administración</p>
-</div>
-</div>
-</div>
-<nav class="flex flex-col gap-xs">
-<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-high transition-all" href="{{ url_for('dashboard_admin') }}">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="font-label-md text-label-md">Panel de Control</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-high transition-all" href="{{ url_for('gestion_productos') }}">
-<span class="material-symbols-outlined">inventory_2</span>
-<span class="font-label-md text-label-md">Productos</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-high transition-all" href="{{ url_for('gestion_pedidos') }}">
-<span class="material-symbols-outlined">receipt_long</span>
-<span class="font-label-md text-label-md">Pedidos</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-full hover:bg-surface-container-high transition-all" href="{{ url_for('gestion_clientes') }}">
-<span class="material-symbols-outlined">group</span>
-<span class="font-label-md text-label-md">Clientes</span>
-</a>
-</nav>
-</aside>
+{% extends "base.html" %}
+{% block content %}
+
+
 <!-- Main Content Area -->
 <main class="ml-[280px] flex-1 flex flex-col h-full overflow-y-auto w-full">
 <!-- TopAppBar (Simplified for Admin view context) -->
@@ -347,7 +124,7 @@
 <!-- Quick Add Form Area (Bento style card for demonstration) -->
 <div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant">
 <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Añadir Cliente Rápido</h3>
-<form method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<form  class="grid grid-cols-1 md:grid-cols-2 gap-md" method="POST" action="{{ url_for('gestion_clientes') }}">
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Nombre *</label>
 <input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="nombre" name="nombre" required="" type="text"/>
@@ -366,7 +143,7 @@
 </div>
 <div class="md:col-span-2 flex justify-end mt-sm">
 <button class="bg-surface-container-low border border-outline-variant text-secondary font-label-bold text-label-bold py-md px-lg rounded mr-sm hover:bg-surface-container-high transition-colors" type="button">Cancelar</button>
-<button class="bg-primary hover:bg-primary-container text-on-primary font-label-bold text-label-bold py-md px-lg rounded shadow-sm hover:shadow-md transition-all active:shadow-none active:translate-y-[1px]" type="submit">Guardar Cliente</button>
+<input class="bg-primary hover:bg-primary-container text-on-primary font-label-bold text-label-bold py-md px-lg rounded shadow-sm hover:shadow-md transition-all active:shadow-none active:translate-y-[1px]" type="submit" value="Guardar Cliente"/>
 </div>
 </form>
 </div>
@@ -374,3 +151,4 @@
 </main>
 </body>
 </html>
+{% endblock %}
