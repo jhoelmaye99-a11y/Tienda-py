@@ -20,6 +20,20 @@
 <p class="font-body-lg text-body-lg text-secondary mt-xs">Gestione su directorio de clientes mayoristas y minoristas.</p>
 </div>
 </div>
+{% with mensajes = get_flashed_messages(with_categories=true) %}
+    {% if mensajes %}
+        {% for categoria, mensaje in mensajes %}
+            <div class="mb-4 rounded-lg border p-4
+                {% if categoria == 'error' %}
+                    border-red-300 bg-red-100 text-red-700
+                {% else %}
+                    border-green-300 bg-green-100 text-green-700
+                {% endif %}">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 <!-- Toolbar (Search & Filter) -->
 <div class="flex gap-md w-full bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
 <div class="relative flex-1">
@@ -48,28 +62,103 @@
 <th class="py-md px-md font-label-bold text-label-bold text-secondary uppercase text-right">Acciones</th>
 </tr>
 </thead>
-<tbody class="font-body-sm text-body-sm text-on-surface">
+
+<tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-outline-variant">
     {% for usuarios in data %}
     <tr>
         <td class="py-4 px-6">{{ usuarios['id_cliente'] }}</td>
         <td class="py-4 px-6">{{ usuarios['nombre'] }}</td>
         <td class="py-4 px-6">{{ usuarios['apellido'] }}</td>
         <td class="py-4 px-6">{{ usuarios['correo'] }}</td>
-        <td class="py-4 px-6">{{ usuarios['telefono'] }}</td>
-        <td class="text-right">
+        <td class="py-4 px-6">{{ usuarios['telefono'] or '' }}</td>
+        <td class="py-4 px-6 text-right">
             <div class="flex items-center justify-end gap-xs">
-                <button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
+                <button
+                    type="button"
+                    onclick="abrirEditarCliente(this)"
+                    data-id="{{ usuarios['id_cliente'] }}"
+                    data-nombre="{{ usuarios['nombre'] }}"
+                    data-apellido="{{ usuarios['apellido'] }}"
+                    data-correo="{{ usuarios['correo'] }}"
+                    data-telefono="{{ usuarios['telefono'] or '' }}"
+                    class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container"
+                    title="Editar">
                     <span class="material-symbols-outlined text-[20px]">edit</span>
                 </button>
-                <button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
-                    <span class="material-symbols-outlined text-[20px]">delete</span>
-                </button>
+                <form method="POST"
+                      action="{{ url_for('gestion_clientes') }}"
+                      onsubmit="return confirm('¿Deseas eliminar este cliente?');">
+                    <input type="hidden" name="accion" value="eliminar">
+                    <input type="hidden" name="id_cliente"
+                           value="{{ usuarios['id_cliente'] }}">
+                    <button type="submit"
+                            class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container"
+                            title="Eliminar">
+                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                    </button>
+                </form>
             </div>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="6" class="py-8 px-6 text-center text-secondary">
+            No hay clientes registrados.
         </td>
     </tr>
     {% endfor %}
 </tbody>
 </table>
+<!----- VENTANA EMERGENTE EDITAR CLIENTE ----->
+<div id="modalEditarCliente"
+     class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
+    <div class="w-full max-w-lg rounded-xl border border-outline-variant bg-surface-container-lowest p-6 shadow-xl">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-md">
+            Editar Cliente
+        </h3>
+        <form method="POST"
+              action="{{ url_for('gestion_clientes') }}"
+              class="grid grid-cols-1 md:grid-cols-2 gap-md">
+            <input type="hidden" name="accion" value="actualizar">
+            <input type="hidden" name="id_cliente" id="editar_id_cliente">
+            <div class="flex flex-col gap-xs">
+                <label for="editar_nombre"
+                       class="font-label-md text-secondary">Nombre</label>
+                <input type="text" name="nombre" id="editar_nombre" required
+                       class="px-md py-sm bg-[#1b0a08] border border-[#604541] rounded-lg text-[#f5dada] focus:outline-none focus:border-primary">
+            </div>
+            <div class="flex flex-col gap-xs">
+                <label for="editar_apellido"
+                       class="font-label-md text-secondary">Apellido</label>
+                <input type="text" name="apellido" id="editar_apellido" required
+                       class="px-md py-sm bg-[#1b0a08] border border-[#604541] rounded-lg text-[#f5dada] focus:outline-none focus:border-primary">
+            </div>
+            <div class="flex flex-col gap-xs">
+                <label for="editar_correo"
+                       class="font-label-md text-secondary">Correo electrónico</label>
+                <input type="email" name="correo" id="editar_correo" required
+                       class="px-md py-sm bg-[#1b0a08] border border-[#604541] rounded-lg text-[#f5dada] focus:outline-none focus:border-primary">
+            </div>
+            <div class="flex flex-col gap-xs">
+                <label for="editar_telefono"
+                       class="font-label-md text-secondary">Teléfono</label>
+                <input type="text" name="telefono" id="editar_telefono"
+                       class="px-md py-sm bg-[#1b0a08] border border-[#604541] rounded-lg text-[#f5dada] focus:outline-none focus:border-primary">
+            </div>
+            <div class="md:col-span-2 flex justify-end gap-sm mt-sm">
+                <button type="button"
+                        onclick="cerrarEditarCliente()"
+                        class="bg-surface-container-low border border-outline-variant text-secondary py-md px-lg rounded">
+                    Cancelar
+                </button>
+                <button type="submit"
+                        class="bg-primary hover:bg-primary-container text-on-primary py-md px-lg rounded">
+                    Guardar Cambios
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- Pagination Footer -->
 <div class="px-md py-sm bg-surface-container-lowest flex items-center justify-between border-t border-outline-variant">
 <span class="font-body-sm text-body-sm text-secondary">Mostrando 1 a 3 de 42 registros</span>
@@ -88,8 +177,9 @@
 </div>
 <!-- Quick Add Form Area (Bento style card for demonstration) -->
 <div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(51,65,85,0.05)] border border-outline-variant">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Añadir Cliente Rápido</h3>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Añadir Cliente </h3>
 <form  class="grid grid-cols-1 md:grid-cols-2 gap-md" method="POST" action="{{ url_for('gestion_clientes') }}">
+    <input type="hidden" name="accion" value="registrar">
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Nombre *</label>
 <input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="nombre" name="nombre" required="" type="text"/>
@@ -114,6 +204,31 @@
 </div>
 </div>
 </main>
+<script>
+function abrirEditarCliente(boton) {
+    document.getElementById('editar_id_cliente').value = boton.dataset.id;
+    document.getElementById('editar_nombre').value = boton.dataset.nombre;
+    document.getElementById('editar_apellido').value = boton.dataset.apellido;
+    document.getElementById('editar_correo').value = boton.dataset.correo;
+    document.getElementById('editar_telefono').value = boton.dataset.telefono;
+
+    const modal = document.getElementById('modalEditarCliente');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function cerrarEditarCliente() {
+    const modal = document.getElementById('modalEditarCliente');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+document.getElementById('modalEditarCliente').addEventListener('click', function(event) {
+    if (event.target === this) {
+        cerrarEditarCliente();
+    }
+});
+</script>
 </body>
 </html>
 {% endblock %}

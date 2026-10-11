@@ -46,6 +46,20 @@
 </button>
 </div>
 </div>
+{% with mensajes = get_flashed_messages(with_categories=true) %}
+    {% if mensajes %}
+        {% for categoria, mensaje in mensajes %}
+            <div class="mb-4 rounded-lg p-4
+                {% if categoria == 'error' %}
+                    bg-red-100 text-red-700 border border-red-300
+                {% else %}
+                    bg-green-100 text-green-700 border border-green-300
+                {% endif %}">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 <!-- Data Table Card -->
 <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0px_4px_12px_rgba(51,65,85,0.05)] overflow-hidden">
 <div class="overflow-x-auto w-full">
@@ -60,23 +74,78 @@
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant/50">
+
     {% for producto in data %}
+
     <tr>
-        <td class="py-4 px-6">{{ producto['id_producto'] }}</td>
-        <td class="py-4 px-6">{{ producto['nombre'] }}</td>
-        <td class="py-4 px-6">{{ producto['precio'] }}</td>
-        <td class="py-4 px-6">{{ producto['stock'] }}</td>
-        <td class="text-right">
+        <td class="py-4 px-6">
+            {{ producto['id_producto'] }}
+        </td>
+
+        <td class="py-4 px-6">
+            {{ producto['nombre'] }}
+        </td>
+
+        <td class="py-4 px-6">
+            {{ producto['precio'] }}
+        </td>
+
+        <td class="py-4 px-6">
+            {{ producto['stock'] }}
+        </td>
+
+        <td class="py-4 px-6 text-right">
             <div class="flex items-center justify-end gap-xs">
-                <button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
-                    <span class="material-symbols-outlined text-[20px]">edit</span>
-                </button>
-                <button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
-                    <span class="material-symbols-outlined text-[20px]">delete</span>
-                </button>
+
+                <!-- BOTÓN EDITAR -->
+                    <button
+                        type="button"
+                        onclick="abrirEditar(this)"
+                        data-id="{{ producto['id_producto'] }}"
+                        data-nombre="{{ producto['nombre'] }}"
+                        data-precio="{{ producto['precio'] }}"
+                        data-stock="{{ producto['stock'] }}"
+                        class="p-xs text-secondary hover:text-primary
+                            transition-colors rounded hover:bg-surface-container"
+                        title="Editar">
+
+                        <span class="material-symbols-outlined text-[20px]">
+                            edit
+                        </span>
+
+                    </button>
+
+                <!-- BOTÓN ELIMINAR -->
+                <form method="POST"
+                      action="{{ url_for('gestion_productos') }}"
+                      onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+
+                    <input type="hidden"
+                           name="accion"
+                           value="eliminar">
+
+                    <input type="hidden"
+                           name="id_producto"
+                           value="{{ producto['id_producto'] }}">
+
+                    <button
+                        type="submit"
+                        class="p-xs text-secondary hover:text-error
+                               transition-colors rounded
+                               hover:bg-error-container"
+                        title="Eliminar">
+
+                        <span class="material-symbols-outlined text-[20px]">
+                            delete
+                        </span>
+                    </button>
+
+                </form>
+
             </div>
         </td>
     </tr>
+
     {% endfor %}
 </tbody>
 </table>
@@ -94,11 +163,106 @@
 </div>
 </div>
 </div>
+<!-- VENTANA EMERGENTE PARA EDITAR PRODUCTO -->
+<div id="modalEditar"
+     class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 p-4">
+
+    <div class="w-full max-w-lg rounded-xl border border-outline-variant
+                bg-surface-container-low p-6 shadow-xl">
+
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="font-headline-md text-headline-md text-primary">
+                Editar Producto
+            </h2>
+
+            <button type="button"
+                    onclick="cerrarEditar()"
+                    class="p-2 text-secondary hover:text-primary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <form method="POST"
+              action="{{ url_for('gestion_productos') }}"
+              class="space-y-4">
+
+            <input type="hidden" name="accion" value="actualizar">
+
+            <input type="hidden"
+                   name="id_producto"
+                   id="editar_id">
+
+            <div class="flex flex-col gap-2">
+                <label for="editar_nombre"
+                       class="font-label-md text-secondary">
+                    Nombre del producto
+                </label>
+
+                <input type="text"
+                       id="editar_nombre"
+                       name="nombre"
+                       required
+                       class="w-full rounded-lg border border-outline
+                              bg-background p-3 text-on-surface">
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label for="editar_precio"
+                       class="font-label-md text-secondary">
+                    Precio
+                </label>
+
+                <input type="number"
+                       id="editar_precio"
+                       name="precio"
+                       min="0"
+                       step="0.01"
+                       required
+                       class="w-full rounded-lg border border-outline
+                              bg-background p-3 text-on-surface">
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label for="editar_stock"
+                       class="font-label-md text-secondary">
+                    Stock
+                </label>
+
+                <input type="number"
+                       id="editar_stock"
+                       name="stock"
+                       min="0"
+                       required
+                       class="w-full rounded-lg border border-outline
+                              bg-background p-3 text-on-surface">
+            </div>
+
+            <div class="flex justify-end gap-3 pt-4">
+
+                <button type="button"
+                        onclick="cerrarEditar()"
+                        class="rounded-lg border border-outline-variant
+                               px-5 py-3 text-secondary hover:bg-surface-container-high">
+                    Cancelar
+                </button>
+
+                <button type="submit"
+                        class="rounded-lg bg-primary-container
+                               px-5 py-3 font-bold text-on-primary-container">
+                    Guardar cambios
+                </button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
 <div class="mt-8 bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 shadow-[0px_4px_12px_rgba(51,65,85,0.05)]" id="quick-add-product">
 <div class="flex items-center gap-3 mb-6">
 <span class="material-symbols-outlined text-primary text-[24px]">add_box</span><h3 class="font-headline-md text-headline-md text-on-surface">Añadir Producto </h3>
 </div>
 <form method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+    <input type="hidden" name="accion" value="registrar">
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-secondary">Nombre *</label>
 <input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="nombre" name="nombre" required="" type="text"/>
@@ -126,11 +290,41 @@
 <!-- panel -->
 
 <script>
-        function closeSidePanel() {
-            document.getElementById('side-panel').classList.add('translate-x-full');
-            // Hide overlay if we added it properly, simplified for demonstration
+    function abrirEditar(boton) {
+        document.getElementById('editar_id').value =
+            boton.dataset.id;
+
+        document.getElementById('editar_nombre').value =
+            boton.dataset.nombre;
+
+        document.getElementById('editar_precio').value =
+            boton.dataset.precio;
+
+        document.getElementById('editar_stock').value =
+            boton.dataset.stock;
+
+        const modal = document.getElementById('modalEditar');
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function cerrarEditar() {
+        const modal = document.getElementById('modalEditar');
+
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    document.getElementById('modalEditar').addEventListener(
+        'click',
+        function(event) {
+            if (event.target === this) {
+                cerrarEditar();
+            }
         }
-    </script>
+    );
+</script>
 
 
 </body>

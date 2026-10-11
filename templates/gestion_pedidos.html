@@ -14,6 +14,20 @@
 </header>
 <!-- Content Canvas -->
 <div class="px-margin-desktop pb-margin-desktop flex-1 overflow-auto">
+{% with mensajes = get_flashed_messages(with_categories=true) %}
+    {% if mensajes %}
+        {% for categoria, mensaje in mensajes %}
+            <div class="mb-4 rounded-lg border p-4
+                {% if categoria == 'error' %}
+                    border-red-300 bg-red-100 text-red-700
+                {% else %}
+                    border-green-300 bg-green-100 text-green-700
+                {% endif %}">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 <!-- Data Table Card (Level 1 Elevation) -->
 <div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 overflow-hidden flex flex-col">
 <table class="w-full text-left border-collapse min-w-max">
@@ -30,34 +44,120 @@
 <tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-outline-variant">
     {% for pedido in data %}
     <tr>
-        <td class="py-4 px-6">{{ pedido['id_pedido'] }}</td>
-        <td class="py-4 px-6">{{ pedido['nombre_cliente'] }} {{ pedido['apellido_cliente'] }}</td>
-        <td class="py-4 px-6">{{ pedido['nombre_producto'] }}</td>
-        <td class="py-4 px-6">{{ pedido['cantidad'] }}</td>
-        <td class="py-4 px-6">{{ pedido['fecha_pedido'] }}</td>
-        <td class="text-right">
+        <td class="py-4 px-6">
+            {{ pedido['id_pedido'] }}
+        </td>
+        <td class="py-4 px-6">
+            {{ pedido['nombre_cliente'] or 'Cliente no encontrado' }}
+            {{ pedido['apellido_cliente'] or '' }}
+        </td>
+        <td class="py-4 px-6">
+            {{ pedido['nombre_producto'] or 'Producto no encontrado' }}
+        </td>
+        <td class="py-4 px-6">
+            {{ pedido['cantidad'] }}
+        </td>
+        <td class="py-4 px-6">
+            {{ pedido['fecha_pedido'] }}
+        </td>
+        <td class="py-4 px-6 text-right">
             <div class="flex items-center justify-end gap-xs">
-                <button class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container" title="Editar">
+                <!----- EDITAR ----->
+                <button
+                    type="button"
+                    onclick="abrirEditarPedido(this)"
+                    data-id="{{ pedido['id_pedido'] }}"
+                    data-cliente="{{ pedido['id_cliente'] }}"
+                    data-producto="{{ pedido['id_producto'] }}"
+                    data-cantidad="{{ pedido['cantidad'] }}"
+                    data-fecha="{{ pedido['fecha_pedido'] }}"
+                    class="p-xs text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container"
+                    title="Editar">
                     <span class="material-symbols-outlined text-[20px]">edit</span>
                 </button>
-                <button class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container" title="Eliminar">
-                    <span class="material-symbols-outlined text-[20px]">delete</span>
-                </button>
+                <!----- ELIMINAR ----->
+                <form method="POST"
+                      action="{{ url_for('gestion_pedidos') }}"
+                      onsubmit="return confirm('¿Deseas eliminar este pedido?');">
+                    <input type="hidden" name="accion" value="eliminar">
+                    <input type="hidden" name="id_pedido"
+                           value="{{ pedido['id_pedido'] }}">
+                    <button type="submit"
+                            class="p-xs text-secondary hover:text-error transition-colors rounded hover:bg-error-container"
+                            title="Eliminar">
+                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                    </button>
+                </form>
             </div>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="6" class="py-8 px-6 text-center text-secondary">
+            No hay pedidos registrados.
         </td>
     </tr>
     {% endfor %}
 </tbody>
 </table>
 </div>
+<!----- Ventana emergente para editar pedidos ----->
+<div id="modalEditarPedido"
+     class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 p-4">
+    <div class="w-full max-w-lg rounded-lg bg-surface-container-lowest p-6 shadow-xl">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-4">
+            Editar Pedido
+        </h2>
+        <form method="POST"
+              action="{{ url_for('gestion_pedidos') }}"
+              class="grid grid-cols-1 md:grid-cols-2 gap-md">
+            <input type="hidden" name="accion" value="actualizar">
+            <input type="hidden" id="editar_id_pedido" name="id_pedido">
+            <div class="flex flex-col gap-xs">
+                <label for="editar_id_cliente">ID Cliente</label>
+                <input id="editar_id_cliente" name="id_cliente"
+                       type="number" min="1" required
+                       class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg text-on-surface focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md">
+            </div>
+            <div class="flex flex-col gap-xs">
+                <label for="editar_id_producto">ID Producto</label>
+                <input id="editar_id_producto" name="id_producto"
+                       type="number" min="1" required
+                        class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg text-on-surface focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md">
+                </div>
+            <div class="flex flex-col gap-xs">
+                <label for="editar_cantidad">Cantidad</label>
+                <input id="editar_cantidad" name="cantidad"
+                       type="number" min="1" required
+                       class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg text-on-surface focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md">
+            </div>
+            <div class="flex flex-col gap-xs">
+                <label for="editar_fecha_pedido">Fecha del pedido</label>
+                <input id="editar_fecha_pedido" name="fecha_pedido"
+                       type="date" required
+                       class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg text-on-surface focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md">
+            </div>
+            <div class="md:col-span-2 flex justify-end gap-2 mt-4">
+                <button type="button" onclick="cerrarEditarPedido()"
+                        class="border border-outline-variant text-secondary py-2 px-4 rounded">
+                    Cancelar
+                </button>
+                <button type="submit"
+                        class="bg-primary text-on-primary py-2 px-4 rounded">
+                    Guardar Cambios
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 <div class="mt-md bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 p-margin-desktop"><h3 class="font-headline-md text-headline-md text-on-surface mb-md">Añadir Pedido </h3>
 <form method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-md">
 <div class="flex flex-col gap-xs">
-<label class="font-label-md text-label-md text-secondary">id cliente *</label>
+<label class="font-label-md text-label-md text-secondary">Cliente *</label>
 <input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="id_cliente" name="id_cliente" required="" type="number"/>
 </div>
 <div class="flex flex-col gap-xs">
-<label class="font-label-md text-label-md text-secondary">id producto *</label>
+<label class="font-label-md text-label-md text-secondary">Producto *</label>
 <input class="px-md py-sm bg-surface-container-lowest border border-outline rounded-lg focus:outline-none focus:border-primary focus:border-2 transition-colors font-body-md text-body-md" id="id_producto" name="id_producto" required="" type="number"/>
 </div>
 <div class="flex flex-col gap-xs">
@@ -78,20 +178,37 @@
 </main>
 </div>
 </div>
+
 <script>
-        function toggleModal() {
-            const modal = document.getElementById('addOrderModal');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
+function abrirEditarPedido(boton) {
+    document.getElementById('editar_id_pedido').value =
+        boton.dataset.id;
+    document.getElementById('editar_id_cliente').value =
+        boton.dataset.cliente;
+    document.getElementById('editar_id_producto').value =
+        boton.dataset.producto;
+    document.getElementById('editar_cantidad').value =
+        boton.dataset.cantidad;
+    document.getElementById('editar_fecha_pedido').value =
+        boton.dataset.fecha.substring(0, 10);
+    const modal = document.getElementById('modalEditarPedido');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+function cerrarEditarPedido() {
+    const modal = document.getElementById('modalEditarPedido');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+document.getElementById('modalEditarPedido').addEventListener(
+    'click',
+    function(event) {
+        if (event.target === this) {
+            cerrarEditarPedido();
         }
-    </script>
-
-
+    }
+);
+</script>
 </body>
 </html>
 {% endblock %}
